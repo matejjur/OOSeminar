@@ -7,10 +7,25 @@ namespace Seminar.Controllers
     public class LoginController
     {
 
-        public void LoginUser(ILoginUserView winFrmFac, IUserRepository usrRepo)
+        public string username;
+        public string password;
+
+
+        public void UsernameInputController(string input)
         {
-            Console.WriteLine("LoginUser() in LoginController");
+            username = input;
         }
 
+        public void PasswordInputController(string input)
+        {
+            password = input;
+        }
+
+        public void LoginUserController(IHomeView winFrmFac, IUserRepository usrRepo)
+        {
+            winFrmFac.ShowViewModal();
+            
+            Console.WriteLine("Username " + username + " password " + password);
+        }
     }
 }

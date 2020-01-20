@@ -42,10 +42,11 @@
             this.Login.Size = new System.Drawing.Size(35, 13);
             this.Login.TabIndex = 0;
             this.Login.Text = "label1";
+            this.Login.Click += new System.EventHandler(this.Login_Click);
             // 
             // usernameInput
             // 
-            this.usernameInput.Location = new System.Drawing.Point(405, 128);
+            this.usernameInput.Location = new System.Drawing.Point(370, 114);
             this.usernameInput.Name = "usernameInput";
             this.usernameInput.Size = new System.Drawing.Size(100, 20);
             this.usernameInput.TabIndex = 1;
@@ -57,6 +58,7 @@
             this.passwordInput.Name = "passwordInput";
             this.passwordInput.Size = new System.Drawing.Size(100, 20);
             this.passwordInput.TabIndex = 2;
+            this.passwordInput.TextChanged += new System.EventHandler(this.passwordInput_TextChanged);
             // 
             // loginButton
             // 
@@ -66,6 +68,7 @@
             this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Login";
             this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // LoginForm
             // 

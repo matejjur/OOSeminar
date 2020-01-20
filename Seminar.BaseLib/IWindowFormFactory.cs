@@ -8,6 +8,6 @@ namespace Seminar.BaseLib
     {
 
         ILoginUserView CreateLoginUserView();
-
+        IHomeView CreateHomeView();
     }
 }

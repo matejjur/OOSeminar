@@ -15,9 +15,10 @@ namespace Seminar.AppStarter
         {
             WindowFormsFactory formsFactory = new WindowFormsFactory();
             MainFormController mainController = new MainFormController(formsFactory, null);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Seminar.PresentationLayer.LoginForm(mainController));
+            Application.Run(new LoginForm(mainController));
         }
     }
 }

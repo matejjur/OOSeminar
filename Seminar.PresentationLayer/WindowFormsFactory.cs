@@ -14,5 +14,11 @@ namespace Seminar.PresentationLayer
             var form = new LoginForm();
             return form;
         }
+
+        public IHomeView CreateHomeView()
+        {
+            var form = new HomeForm();
+            return form;
+        }
     }
 }

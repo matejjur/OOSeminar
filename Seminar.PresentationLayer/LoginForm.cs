@@ -43,7 +43,20 @@ namespace Seminar.PresentationLayer
 
         private void usernameInput_TextChanged(object sender, EventArgs e)
         {
+            _controller.UsernameInput(usernameInput.Text);
+        }
+
+        private void passwordInput_TextChanged(object sender, EventArgs e)
+        {
+            _controller.PasswordInput(passwordInput.Text);
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
             _controller.LoginUser();
         }
+
+        private void Login_Click(object sender, EventArgs e) {}
     }
 }

@@ -11,6 +11,8 @@ namespace Seminar.Controllers
         private readonly IWindowFormFactory windowFormFactory = null;
         private readonly IUserRepository userRepository = null;
 
+        LoginController loginController = new LoginController();
+
 
         public MainFormController(IWindowFormFactory winForFac, IUserRepository usrRepo)
         {
@@ -18,13 +20,25 @@ namespace Seminar.Controllers
             userRepository = usrRepo;
         }
 
-        public void LoginUser()
+        public void UsernameInput(string input)
         {
-            var loginController = new LoginController();
-
             var newFrm = windowFormFactory.CreateLoginUserView();
 
-            loginController.LoginUser(newFrm, userRepository);
+            loginController.UsernameInputController(input);
         }
+
+        public void PasswordInput(string input)
+        {
+            loginController.PasswordInputController(input);
+        }
+
+        public void LoginUser()
+        {
+            var newFrm = windowFormFactory.CreateHomeView();
+
+            loginController.LoginUserController(newFrm, userRepository);
+        }
+
+        
     }
 }
