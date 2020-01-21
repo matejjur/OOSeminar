@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Seminar.Model.Repositories;
 using Seminar.Model;
+using System.Collections.ObjectModel;
 
 namespace Seminar.MemoryBasedDAL
 {
@@ -19,10 +20,11 @@ namespace Seminar.MemoryBasedDAL
         public void addNewRecord(Record record)
         {
             allRecords.Add(record);
-            foreach(var rec in allRecords)
-            {
-                Console.WriteLine(rec.Description);
-            }
+        }
+
+        public List<Record> getAllRecords()
+        {
+            return allRecords;
         }
     }
 }

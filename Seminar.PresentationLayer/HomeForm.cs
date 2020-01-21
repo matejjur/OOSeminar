@@ -27,9 +27,14 @@ namespace Seminar.PresentationLayer
             InitializeComponent();
         }
 
+        private void HomeForm_Shown()
+        {
+        }
+
 
         public bool ShowViewModal()
         {
+            HomeForm_Shown();
             Show();
             return true;
         }
@@ -42,6 +47,17 @@ namespace Seminar.PresentationLayer
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        /* TODO napraviti da uzme samo one ciji su indeksi veci od this.listView1.Items.Count */
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            var records = _controller.RefreshData();
+            foreach (var record in records)
+            {
+                Console.WriteLine(record.Description);
+                this.listView1.Items.Add(new ListViewItem(new string[] { record.Description, "Nesto", "Nesto drugo" }));
+            }
         }
     }
 }

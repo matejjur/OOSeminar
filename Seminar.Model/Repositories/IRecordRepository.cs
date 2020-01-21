@@ -6,6 +6,9 @@ namespace Seminar.Model.Repositories
 {
     public interface IRecordRepository
     {
-        void addNewRecord(Record record); 
+        void addNewRecord(Record record);
+
+        List<Record> getAllRecords();
+
     }
 }

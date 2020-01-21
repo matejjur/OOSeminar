@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Seminar.BaseLib;
+using Seminar.Model;
 using Seminar.Model.Repositories;
 
 namespace Seminar.Controllers
@@ -67,7 +68,13 @@ namespace Seminar.Controllers
             var AddNewRecordView = windowFormsFactory.CreateAddNewRecordView(_controller);
             homeController.AddNewRecord(AddNewRecordView, recordRepository);
         }
-        
+
+        public List<Record> RefreshData()
+        {
+            return homeController.RefreshData(recordRepository);
+        }
+
+
         public void DescriptionTextChange(string input)
         {
             addRecordController.descriptionChange(input);
