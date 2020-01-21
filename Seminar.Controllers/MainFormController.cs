@@ -15,6 +15,7 @@ namespace Seminar.Controllers
         LoginController loginController = new LoginController();
         RegistrationController registrationController = new RegistrationController();
         HomeController homeController = new HomeController();
+        AddRecordController addRecordController = new AddRecordController();
 
         public MainFormController(IWindowFormFactory winForFac, IUserRepository usrRepo, IRecordRepository rcdRepo)
         {
@@ -40,6 +41,8 @@ namespace Seminar.Controllers
             loginController.LoginUserController(HomeView, userRepository);
         }
 
+
+
         public void UsernameInputRegistration(string input)
         {
             registrationController.UsernameInputController(input);
@@ -57,11 +60,23 @@ namespace Seminar.Controllers
             registrationController.RegisterUserController(LoginView, userRepository);
         }
 
+
+
         public void AddNewRecord(MainFormController _controller)
         {
             var AddNewRecordView = windowFormsFactory.CreateAddNewRecordView(_controller);
             homeController.AddNewRecord(AddNewRecordView, recordRepository);
         }
         
+        public void DescriptionTextChange(string input)
+        {
+            addRecordController.descriptionChange(input);
+        }
+
+        public void SaveRecord()
+        {
+            addRecordController.CreateNewRecord(recordRepository);
+        }
+
     }
 }

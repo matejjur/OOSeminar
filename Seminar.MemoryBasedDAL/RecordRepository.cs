@@ -16,10 +16,13 @@ namespace Seminar.MemoryBasedDAL
             return _instance ?? (_instance = new RecordRepository());
         }
 
-        public void addNewRecord()
+        public void addNewRecord(Record record)
         {
-            // allRecords.Add(record);
-            throw new NotImplementedException();
+            allRecords.Add(record);
+            foreach(var rec in allRecords)
+            {
+                Console.WriteLine(rec.Description);
+            }
         }
     }
 }

@@ -31,5 +31,16 @@ namespace Seminar.PresentationLayer
             Show();
             return true;
         }
+
+        private void descriptionText_TextChanged(object sender, EventArgs e)
+        {
+            _controller.DescriptionTextChange(descriptionText.Text);
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            _controller.SaveRecord();
+            this.Close();
+        }
     }
 }

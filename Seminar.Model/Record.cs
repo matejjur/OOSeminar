@@ -7,10 +7,12 @@ namespace Seminar.Model
     public class Record
     {
         public string Feeling { get; set; }
+        public string Description { get; set; }
 
-        public Record(string feeling)
+        public Record(string description)
         {
-            Feeling = feeling;
+            //Feeling = feeling;
+            Description = description;
         }
     }
 }

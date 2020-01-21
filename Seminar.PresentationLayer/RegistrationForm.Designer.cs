@@ -55,6 +55,7 @@
             // 
             this.passwordRegistrationInput.Location = new System.Drawing.Point(387, 173);
             this.passwordRegistrationInput.Name = "passwordRegistrationInput";
+            this.passwordRegistrationInput.PasswordChar = '*';
             this.passwordRegistrationInput.Size = new System.Drawing.Size(100, 20);
             this.passwordRegistrationInput.TabIndex = 2;
             this.passwordRegistrationInput.TextChanged += new System.EventHandler(this.passwordRegistrationInput_TextChanged);
@@ -73,7 +74,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(847, 442);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.passwordRegistrationInput);
             this.Controls.Add(this.usernameRegistrationInput);
