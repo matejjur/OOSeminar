@@ -10,14 +10,17 @@ namespace Seminar.Controllers
     {
         private readonly IWindowFormFactory windowFormsFactory = null;
         private readonly IUserRepository userRepository = null;
+        private readonly IRecordRepository recordRepository = null;
 
         LoginController loginController = new LoginController();
         RegistrationController registrationController = new RegistrationController();
+        HomeController homeController = new HomeController();
 
-        public MainFormController(IWindowFormFactory winForFac, IUserRepository usrRepo)
+        public MainFormController(IWindowFormFactory winForFac, IUserRepository usrRepo, IRecordRepository rcdRepo)
         {
             windowFormsFactory = winForFac;
             userRepository = usrRepo;
+            recordRepository = rcdRepo;
         }
 
         public void UsernameInput(string input)
@@ -30,9 +33,9 @@ namespace Seminar.Controllers
             loginController.PasswordInputController(input);
         }
 
-        public void LoginUser()
+        public void LoginUser(MainFormController _controller)
         {
-            var HomeView = windowFormsFactory.CreateHomeView();
+            var HomeView = windowFormsFactory.CreateHomeView(_controller);
 
             loginController.LoginUserController(HomeView, userRepository);
         }
@@ -54,6 +57,11 @@ namespace Seminar.Controllers
             registrationController.RegisterUserController(LoginView, userRepository);
         }
 
+        public void AddNewRecord(MainFormController _controller)
+        {
+            var AddNewRecordView = windowFormsFactory.CreateAddNewRecordView(_controller);
+            homeController.AddNewRecord(AddNewRecordView, recordRepository);
+        }
         
     }
 }

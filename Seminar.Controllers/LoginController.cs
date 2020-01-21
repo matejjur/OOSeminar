@@ -24,9 +24,15 @@ namespace Seminar.Controllers
 
         public void LoginUserController(IHomeView HomeView, IUserRepository usrRepo)
         {
-            HomeView.ShowViewModal();
-            Console.WriteLine("Logged in user");
-            Console.WriteLine("Username " + username + " password " + password);
+            if (usrRepo.checkCredentials(username, password))
+            {
+                HomeView.ShowViewModal();
+                Console.WriteLine("Logged in user");
+                Console.WriteLine("Username " + username + " password " + password);
+            } else
+            {
+                Console.WriteLine("Wrong credentials");
+            }
         }
     }
 }

@@ -47,7 +47,7 @@ namespace Seminar.PresentationLayer
         private void loginButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            _controller.LoginUser();
+            _controller.LoginUser(_controller);
         }
 
         private void Login_Click(object sender, EventArgs e) {}

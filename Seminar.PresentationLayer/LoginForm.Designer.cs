@@ -37,16 +37,16 @@
             // Login
             // 
             this.Login.AutoSize = true;
-            this.Login.Location = new System.Drawing.Point(402, 79);
+            this.Login.Location = new System.Drawing.Point(414, 79);
             this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(35, 13);
+            this.Login.Size = new System.Drawing.Size(33, 13);
             this.Login.TabIndex = 0;
-            this.Login.Text = "label1";
+            this.Login.Text = "Login";
             this.Login.Click += new System.EventHandler(this.Login_Click);
             // 
             // usernameInput
             // 
-            this.usernameInput.Location = new System.Drawing.Point(370, 114);
+            this.usernameInput.Location = new System.Drawing.Point(380, 117);
             this.usernameInput.Name = "usernameInput";
             this.usernameInput.Size = new System.Drawing.Size(100, 20);
             this.usernameInput.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             // passwordInput
             // 
-            this.passwordInput.Location = new System.Drawing.Point(336, 197);
+            this.passwordInput.Location = new System.Drawing.Point(380, 159);
             this.passwordInput.Name = "passwordInput";
             this.passwordInput.Size = new System.Drawing.Size(100, 20);
             this.passwordInput.TabIndex = 2;
@@ -62,7 +62,7 @@
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(405, 238);
+            this.loginButton.Location = new System.Drawing.Point(394, 200);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(75, 23);
             this.loginButton.TabIndex = 3;

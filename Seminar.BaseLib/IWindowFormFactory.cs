@@ -9,6 +9,9 @@ namespace Seminar.BaseLib
         ILoginUserView CreateLoginUserView();
         ILoginUserView CreateLoginUserView(IMainFormController mc);
         IHomeView CreateHomeView();
+        IHomeView CreateHomeView(IMainFormController mc);
         IRegistrationView CreateRegistrationView();
+        IAddNewRecordView CreateAddNewRecordView();
+        IAddNewRecordView CreateAddNewRecordView(IMainFormController mc);
     }
 }

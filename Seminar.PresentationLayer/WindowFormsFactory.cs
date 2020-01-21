@@ -28,9 +28,27 @@ namespace Seminar.PresentationLayer
             return form;
         }
 
+        public IHomeView CreateHomeView(IMainFormController mc)
+        {
+            var form = new HomeForm((MainFormController)mc);
+            return form;
+        }
+
         public IRegistrationView CreateRegistrationView()
         {
             var form = new RegistrationForm();
+            return form;
+        }
+
+        public IAddNewRecordView CreateAddNewRecordView()
+        {
+            var form = new AddNewRecordForm();
+            return form;
+        }
+
+        public IAddNewRecordView CreateAddNewRecordView(IMainFormController mc)
+        {
+            var form = new AddNewRecordForm((MainFormController)mc);
             return form;
         }
     }

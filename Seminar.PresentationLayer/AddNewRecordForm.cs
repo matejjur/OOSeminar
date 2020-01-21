@@ -12,36 +12,24 @@ using Seminar.Controllers;
 
 namespace Seminar.PresentationLayer
 {
-    public partial class HomeForm : Form, IHomeView
+    public partial class AddNewRecordForm : Form, IAddNewRecordView
     {
-
         MainFormController _controller;
-        public HomeForm()
+        public AddNewRecordForm()
         {
             InitializeComponent();
         }
 
-        public HomeForm(MainFormController inController)
+        public AddNewRecordForm(MainFormController inController)
         {
             _controller = inController;
             InitializeComponent();
         }
 
-
         public bool ShowViewModal()
         {
             Show();
             return true;
-        }
-
-        private void addRecord_Click(object sender, EventArgs e)
-        {
-            _controller.AddNewRecord(_controller);
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

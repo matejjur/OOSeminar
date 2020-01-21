@@ -20,5 +20,17 @@ namespace Seminar.MemoryBasedDAL
         {
             allUsers.Add(user);
         }
+
+        public bool checkCredentials(string username, string password)
+        {
+            foreach (var user in allUsers)
+            {
+                if (user.Username == username && user.Password == password)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
