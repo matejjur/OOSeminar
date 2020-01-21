@@ -8,22 +8,20 @@ namespace Seminar.Controllers
 {
     public class MainFormController : IMainFormController
     {
-        private readonly IWindowFormFactory windowFormFactory = null;
+        private readonly IWindowFormFactory windowFormsFactory = null;
         private readonly IUserRepository userRepository = null;
 
         LoginController loginController = new LoginController();
-
+        RegistrationController registrationController = new RegistrationController();
 
         public MainFormController(IWindowFormFactory winForFac, IUserRepository usrRepo)
         {
-            windowFormFactory = winForFac;
+            windowFormsFactory = winForFac;
             userRepository = usrRepo;
         }
 
         public void UsernameInput(string input)
         {
-            var newFrm = windowFormFactory.CreateLoginUserView();
-
             loginController.UsernameInputController(input);
         }
 
@@ -34,9 +32,26 @@ namespace Seminar.Controllers
 
         public void LoginUser()
         {
-            var newFrm = windowFormFactory.CreateHomeView();
+            var HomeView = windowFormsFactory.CreateHomeView();
 
-            loginController.LoginUserController(newFrm, userRepository);
+            loginController.LoginUserController(HomeView, userRepository);
+        }
+
+        public void UsernameInputRegistration(string input)
+        {
+            registrationController.UsernameInputController(input);
+        }
+
+        public void PasswordInputRegistration(string input)
+        {
+            registrationController.PasswordInputController(input);
+        }
+
+        public void RegisterUser(MainFormController _controller)
+        {
+            Console.WriteLine("Register user");
+            var LoginView = windowFormsFactory.CreateLoginUserView(_controller);
+            registrationController.RegisterUserController(LoginView, userRepository);
         }
 
         

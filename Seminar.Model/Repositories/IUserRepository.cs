@@ -6,5 +6,6 @@ namespace Seminar.Model.Repositories
 {
     public interface IUserRepository
     {
+        void saveUser(User user);
     }
 }

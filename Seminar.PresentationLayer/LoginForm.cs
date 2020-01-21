@@ -28,17 +28,10 @@ namespace Seminar.PresentationLayer
             InitializeComponent();
         }
 
-        public string Username => throw new NotImplementedException();
-
-        public string Password => throw new NotImplementedException();
-
         public bool ShowViewModal()
         {
-            Console.WriteLine("LoginForm.cs ShowViewModal()");
-            if (this.ShowDialog() == DialogResult.OK)
-                return true;
-            else
-                return false;
+            Show();
+            return true;
         }
 
         private void usernameInput_TextChanged(object sender, EventArgs e)

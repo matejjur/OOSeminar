@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar.PresentationLayer;
 using Seminar.Controllers;
+using Seminar.MemoryBasedDAL;
 
 namespace Seminar.AppStarter
 {
@@ -14,11 +15,11 @@ namespace Seminar.AppStarter
         static void Main()
         {
             WindowFormsFactory formsFactory = new WindowFormsFactory();
-            MainFormController mainController = new MainFormController(formsFactory, null);
+            MainFormController mainController = new MainFormController(formsFactory, UserRepository.getInstance());
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm(mainController));
+            Application.Run(new RegistrationForm(mainController));
         }
     }
 }

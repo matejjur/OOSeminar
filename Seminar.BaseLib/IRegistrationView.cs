@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Seminar.BaseLib
 {
-    public interface ILoginUserView
+    public interface IRegistrationView
     {
         bool ShowViewModal();
     }

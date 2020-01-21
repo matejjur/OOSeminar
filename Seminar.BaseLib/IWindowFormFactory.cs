@@ -6,8 +6,9 @@ namespace Seminar.BaseLib
 {
     public interface IWindowFormFactory
     {
-
         ILoginUserView CreateLoginUserView();
+        ILoginUserView CreateLoginUserView(IMainFormController mc);
         IHomeView CreateHomeView();
+        IRegistrationView CreateRegistrationView();
     }
 }
