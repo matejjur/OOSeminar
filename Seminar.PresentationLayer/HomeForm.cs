@@ -49,9 +49,18 @@ namespace Seminar.PresentationLayer
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int i = listView1.SelectedIndices[0];
-            string date = listView1.Items[i].Text; // tu je datum koji moze biti ID sad bi trebalo otvorit
-            _controller.OpenRecordDetails(_controller, date);
+            //int i = listView1.SelectedIndices[0];
+            //string date = listView1.Items[i].Text; // tu je datum koji moze biti ID sad bi trebalo otvorit
+            //_controller.OpenRecordDetails(_controller, date);
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems[0] != null)
+            {
+                string date = listView1.SelectedItems[0].Text;
+                _controller.OpenRecordDetails(_controller, date);
+            }
         }
 
 
