@@ -13,5 +13,7 @@ namespace Seminar.BaseLib
         IRegistrationView CreateRegistrationView();
         IAddNewRecordView CreateAddNewRecordView();
         IAddNewRecordView CreateAddNewRecordView(IMainFormController mc);
+        IRecordDetailsView CreateRecordDetailsView();
+        IRecordDetailsView CreateRecordDetailsView(IMainFormController mc);
     }
 }

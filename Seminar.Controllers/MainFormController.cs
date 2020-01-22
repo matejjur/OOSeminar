@@ -17,6 +17,7 @@ namespace Seminar.Controllers
         RegistrationController registrationController = new RegistrationController();
         HomeController homeController = new HomeController();
         AddRecordController addRecordController = new AddRecordController();
+        RecordDetailsController recordDetailsController = new RecordDetailsController();
 
         public MainFormController(IWindowFormFactory winForFac, IUserRepository usrRepo, IRecordRepository rcdRepo)
         {
@@ -75,8 +76,11 @@ namespace Seminar.Controllers
             return homeController.RefreshData(recordRepository);
         }
 
-        public void OpenRecordEdit(string id) // id je date
+        public void OpenRecordDetails(MainFormController _controller, string id) // id je date
         {
+            Console.WriteLine("Open record details");
+            var RecordDetailsView = windowFormsFactory.CreateRecordDetailsView(_controller);
+            recordDetailsController.OpenRecordDetails(RecordDetailsView, recordRepository, id);
         }
 
 
@@ -100,6 +104,10 @@ namespace Seminar.Controllers
         {
             addRecordController.CreateNewRecord(recordRepository);
         }
+
+
+        // record details
+        
 
     }
 }

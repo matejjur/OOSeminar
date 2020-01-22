@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar.BaseLib;
 using Seminar.Controllers;
+using System.Windows.Forms;
 
 namespace Seminar.PresentationLayer
 {
@@ -49,9 +50,14 @@ namespace Seminar.PresentationLayer
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int i = listView1.SelectedIndices[0];
-            string s = listView1.Items[i].Text; // tu je datum koji moze biti ID sad bi trebalo otvorit 
-            Console.WriteLine(s);
+            //int i = listView1.SelectedIndices[0];
+            //string date = listView1.Items[i].Text; // tu je datum koji moze biti ID sad bi trebalo otvorit 
+            //Console.WriteLine(date);
+            //_controller.OpenRecordDetails(_controller, date);
+
+
+            ListViewItem i = listView1.SelectedItems[0];
+            _controller.OpenRecordDetails(_controller, i.Text);
         }
 
 

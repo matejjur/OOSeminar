@@ -51,5 +51,17 @@ namespace Seminar.PresentationLayer
             var form = new AddNewRecordForm((MainFormController)mc);
             return form;
         }
+
+        public IRecordDetailsView CreateRecordDetailsView()
+        {
+            var form = new RecordDetailsForm();
+            return form;
+        }
+
+        public IRecordDetailsView CreateRecordDetailsView(IMainFormController mc)
+        {
+            var form = new RecordDetailsForm((MainFormController)mc);
+            return form;
+        }
     }
 }
