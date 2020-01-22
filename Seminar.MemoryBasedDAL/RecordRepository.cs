@@ -26,5 +26,17 @@ namespace Seminar.MemoryBasedDAL
         {
             return allRecords;
         }
+
+        public Record getRecordByID(string id)
+        {
+            foreach (Record record in allRecords)
+            {
+                if (record.Date == id)
+                {
+                    return record;
+                }
+            }
+            return new Record("Not found", "Not found", "Not found");
+        }
     }
 }

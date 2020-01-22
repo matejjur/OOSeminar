@@ -10,5 +10,7 @@ namespace Seminar.Model.Repositories
 
         List<Record> getAllRecords();
 
+        Record getRecordByID(string id);
+
     }
 }

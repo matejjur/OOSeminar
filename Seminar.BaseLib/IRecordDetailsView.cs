@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Seminar.Model;
 
 namespace Seminar.BaseLib
 {
@@ -8,7 +9,7 @@ namespace Seminar.BaseLib
     {
 
         bool ShowViewModal();
-        bool ShowViewModal(string id);
+        bool ShowViewModal(Record record);
 
     }
 }

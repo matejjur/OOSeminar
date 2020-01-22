@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Seminar.Model;
 using Seminar.Model.Repositories;
 using Seminar.BaseLib;
 
@@ -11,7 +12,8 @@ namespace Seminar.Controllers
 
         public void OpenRecordDetails(IRecordDetailsView recordDetailsView, IRecordRepository recordRepository, string id)
         {
-            recordDetailsView.ShowViewModal(id);
+            Record record = recordRepository.getRecordByID(id);
+            recordDetailsView.ShowViewModal(record);
         }
 
     }

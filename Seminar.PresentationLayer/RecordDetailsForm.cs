@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar.BaseLib;
 using Seminar.Controllers;
+using Seminar.Model;
 
 namespace Seminar.PresentationLayer
 {
@@ -24,8 +25,8 @@ namespace Seminar.PresentationLayer
 
         public RecordDetailsForm(MainFormController inController)
         {
-            InitializeComponent();
             _controller = inController;
+            InitializeComponent();
         }
 
         public bool ShowViewModal()
@@ -34,10 +35,11 @@ namespace Seminar.PresentationLayer
             return true;
         }
 
-        public bool ShowViewModal(string id)
+        public bool ShowViewModal(Record record)
         {
-            Console.WriteLine("RecordDetailsForm");
-            Console.WriteLine(id);
+            this.feelingText.Text = record.Feeling;
+            this.descriptionText.Text = record.Description;
+            this.dateText.Text = record.Date;
             Show();
             return true;
         }
