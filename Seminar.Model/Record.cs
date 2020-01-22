@@ -8,11 +8,13 @@ namespace Seminar.Model
     {
         public string Feeling { get; set; }
         public string Description { get; set; }
+        public string Date { get; set; }
 
-        public Record(string description)
+        public Record(string feeling, string description, string date)
         {
-            //Feeling = feeling;
+            Feeling = feeling;
             Description = description;
+            Date = date;
         }
     }
 }

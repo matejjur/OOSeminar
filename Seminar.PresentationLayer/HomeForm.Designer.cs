@@ -1,4 +1,6 @@
-﻿namespace Seminar.PresentationLayer
+﻿using System.Windows.Forms;
+
+namespace Seminar.PresentationLayer
 {
     partial class HomeForm
     {
@@ -47,9 +49,14 @@
             // 
             // listView1
             // 
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            //this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            //listViewItem1,
+            //listViewItem2});
+
+            //this.listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
+            //this.listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
+            //this.listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
+
             this.listView1.Location = new System.Drawing.Point(12, 12);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(695, 426);
@@ -58,8 +65,8 @@
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.Columns.Add("Column1");
-            this.listView1.Columns.Add("Column1");
-            this.listView1.Columns.Add("Column1");
+            this.listView1.Columns.Add("Column2");
+            this.listView1.Columns.Add("Column3");
             // 
             // refreshButton
             // 

@@ -25,6 +25,7 @@ namespace Seminar.Controllers
             recordRepository = rcdRepo;
         }
 
+        // login
         public void UsernameInput(string input)
         {
             loginController.UsernameInputController(input);
@@ -43,7 +44,7 @@ namespace Seminar.Controllers
         }
 
 
-
+        // registration
         public void UsernameInputRegistration(string input)
         {
             registrationController.UsernameInputController(input);
@@ -62,7 +63,7 @@ namespace Seminar.Controllers
         }
 
 
-
+        // home
         public void AddNewRecord(MainFormController _controller)
         {
             var AddNewRecordView = windowFormsFactory.CreateAddNewRecordView(_controller);
@@ -74,10 +75,25 @@ namespace Seminar.Controllers
             return homeController.RefreshData(recordRepository);
         }
 
+        public void OpenRecordEdit(string id) // id je date
+        {
+        }
 
+
+        // add new record
         public void DescriptionTextChange(string input)
         {
             addRecordController.descriptionChange(input);
+        }
+
+        public void FeelingChange(string input)
+        {
+            addRecordController.feelingChange(input);
+        }
+
+        public void DateChange(string input)
+        {
+            addRecordController.dateChange(input);
         }
 
         public void SaveRecord()

@@ -37,6 +37,18 @@ namespace Seminar.PresentationLayer
             _controller.DescriptionTextChange(descriptionText.Text);
         }
 
+        // feeling
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _controller.FeelingChange(comboBox1.Text);
+        }
+
+        // date
+        private void AddNewRecordForm_Load(object sender, EventArgs e)
+        {
+            _controller.DateChange(dateTimePicker1.Text);
+        }
+
         private void saveButton_Click(object sender, EventArgs e)
         {
             _controller.SaveRecord();
