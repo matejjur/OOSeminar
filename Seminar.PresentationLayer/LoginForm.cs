@@ -46,8 +46,16 @@ namespace Seminar.PresentationLayer
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            _controller.LoginUser(_controller);
+            bool success = _controller.LoginUser(_controller);
+            if (success)
+            {
+                this.Hide();
+            } 
+            else
+            {
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                MessageBox.Show("Wrong username of password", "Login error", button);
+            }
         }
 
         private void Login_Click(object sender, EventArgs e) {}

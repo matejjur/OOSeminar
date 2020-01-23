@@ -37,11 +37,11 @@ namespace Seminar.Controllers
             loginController.PasswordInputController(input);
         }
 
-        public void LoginUser(MainFormController _controller)
+        public bool LoginUser(MainFormController _controller)
         {
             var HomeView = windowFormsFactory.CreateHomeView(_controller);
 
-            loginController.LoginUserController(HomeView, userRepository);
+            return loginController.LoginUserController(HomeView, userRepository);
         }
 
 
@@ -56,11 +56,11 @@ namespace Seminar.Controllers
             registrationController.PasswordInputController(input);
         }
 
-        public void RegisterUser(MainFormController _controller)
+        public string RegisterUser(MainFormController _controller)
         {
             Console.WriteLine("Register user");
             var LoginView = windowFormsFactory.CreateLoginUserView(_controller);
-            registrationController.RegisterUserController(LoginView, userRepository);
+            return registrationController.RegisterUserController(LoginView, userRepository);
         }
 
 

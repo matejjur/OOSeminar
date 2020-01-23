@@ -30,16 +30,18 @@ namespace Seminar.PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.addRecord = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // addRecord
             // 
-            this.addRecord.Location = new System.Drawing.Point(713, 13);
+            this.addRecord.Location = new System.Drawing.Point(713, 54);
             this.addRecord.Name = "addRecord";
             this.addRecord.Size = new System.Drawing.Size(75, 23);
             this.addRecord.TabIndex = 0;
@@ -49,25 +51,13 @@ namespace Seminar.PresentationLayer
             // 
             // listView1
             // 
-            //this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            //listViewItem1,
-            //listViewItem2});
-
-            //this.listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
-            //this.listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
-            //this.listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
-
-            this.listView1.Location = new System.Drawing.Point(12, 12);
+            this.listView1.Location = new System.Drawing.Point(12, 27);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(695, 426);
+            this.listView1.Size = new System.Drawing.Size(695, 411);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
-            this.listView1.Columns.Add("Column1");
-            this.listView1.Columns.Add("Column2");
-            this.listView1.Columns.Add("Column3");
             // 
             // refreshButton
             // 
@@ -79,6 +69,29 @@ namespace Seminar.PresentationLayer
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logoutToolStripMenuItem,
+            this.deleteAccountToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            // 
+            // deleteAccountToolStripMenuItem
+            // 
+            this.deleteAccountToolStripMenuItem.Name = "deleteAccountToolStripMenuItem";
+            this.deleteAccountToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.deleteAccountToolStripMenuItem.Text = "Delete account";
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -87,9 +100,14 @@ namespace Seminar.PresentationLayer
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.addRecord);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "HomeForm";
             this.Text = "HomeForm";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -98,5 +116,8 @@ namespace Seminar.PresentationLayer
         private System.Windows.Forms.Button addRecord;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button refreshButton;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem logoutToolStripMenuItem;
+        private ToolStripMenuItem deleteAccountToolStripMenuItem;
     }
 }

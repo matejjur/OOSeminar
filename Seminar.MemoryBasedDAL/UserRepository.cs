@@ -32,5 +32,10 @@ namespace Seminar.MemoryBasedDAL
             }
             return false;
         }
+
+        public List<User> getAllUsers()
+        {
+            return allUsers;
+        }
     }
 }

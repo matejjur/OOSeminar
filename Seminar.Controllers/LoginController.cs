@@ -22,17 +22,17 @@ namespace Seminar.Controllers
             password = input;
         }
 
-        public void LoginUserController(IHomeView HomeView, IUserRepository usrRepo)
+        public bool LoginUserController(IHomeView HomeView, IUserRepository usrRepo)
         {
             if (usrRepo.checkCredentials(username, password))
             {
                 HomeView.ShowViewModal();
                 Console.WriteLine("Logged in user");
                 Console.WriteLine("Username " + username + " password " + password);
-            } else
-            {
-                Console.WriteLine("Wrong credentials");
+                return true;
             }
+            Console.WriteLine("Wrong credentials");
+            return false;
         }
     }
 }

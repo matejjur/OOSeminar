@@ -40,8 +40,16 @@ namespace Seminar.PresentationLayer
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            _controller.RegisterUser(_controller);
+            string registrationMessage = _controller.RegisterUser(_controller);
+            if (registrationMessage == "User registered")
+            {
+                Hide();
+            }
+            else
+            {
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                MessageBox.Show(registrationMessage, "Registration error", button);
+            }
         }
 
         //TODO provjeriti sta je ovom funkcijom

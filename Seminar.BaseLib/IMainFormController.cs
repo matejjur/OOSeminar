@@ -6,5 +6,8 @@ namespace Seminar.BaseLib
 {
     public interface IMainFormController
     {
+        
+        //dodati sve metode iz MainFormControllera 
+
     }
 }

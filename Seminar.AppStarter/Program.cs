@@ -19,7 +19,7 @@ namespace Seminar.AppStarter
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomeForm(mainController));
+            Application.Run(new RegistrationForm(mainController));
         }
     }
 }
