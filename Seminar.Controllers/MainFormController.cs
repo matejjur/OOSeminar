@@ -18,6 +18,7 @@ namespace Seminar.Controllers
         HomeController homeController = new HomeController();
         AddRecordController addRecordController = new AddRecordController();
         RecordDetailsController recordDetailsController = new RecordDetailsController();
+        RecordEditController recordEditController = new RecordEditController();
 
         public MainFormController(IWindowFormFactory winForFac, IUserRepository usrRepo, IRecordRepository rcdRepo)
         {
@@ -83,6 +84,13 @@ namespace Seminar.Controllers
             recordDetailsController.OpenRecordDetails(RecordDetailsView, recordRepository, id);
         }
 
+        public void OpenRecordEdit(MainFormController _controller, string id)
+        {
+            Console.WriteLine("Open record edit");
+            var RecordEditView = windowFormsFactory.CreateRecordEditView(_controller);
+            recordEditController.OpenRecordEdit(RecordEditView, recordRepository, id);
+        }
+
 
         // add new record
         public void DescriptionTextChange(string input)
@@ -107,7 +115,20 @@ namespace Seminar.Controllers
 
 
         // record details
-        
+        public void DescriptionEditText(string input)
+        {
+            recordEditController.DescriptionEditText(input);
+        }
+
+        public void FeelingEditText(string input)
+        {
+            recordEditController.FeelingEditText(input);
+        }
+
+        public void SaveEditChanges(string date)
+        {
+            recordEditController.SaveEditChanges(date, recordRepository);
+        }
 
     }
 }

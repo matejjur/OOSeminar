@@ -16,6 +16,7 @@ namespace Seminar.PresentationLayer
     {
 
         MainFormController _controller;
+        private string selectedDateForEdit;
         public HomeForm()
         {
             InitializeComponent();
@@ -47,13 +48,19 @@ namespace Seminar.PresentationLayer
             _controller.AddNewRecord(_controller);
         }
 
-        private void listView1_DoubleClick(object sender, EventArgs e)
+        private void showDetails(object sender, EventArgs e)
         {
             if (listView1.SelectedItems[0] != null)
             {
                 string date = listView1.SelectedItems[0].Text;
                 _controller.OpenRecordDetails(_controller, date);
             }
+        }
+
+        private void editRecord(object sender, EventArgs e) // ListViewItem click
+        {
+            if (listView1.SelectedItems.Count == 0) return;
+            selectedDateForEdit = listView1.SelectedItems[0].Text;
         }
 
 
@@ -67,6 +74,21 @@ namespace Seminar.PresentationLayer
                 Console.WriteLine(record.Description);
                 this.listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Description }));
             }
+        }
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Edit record with date: " + selectedDateForEdit);
+            _controller.OpenRecordEdit(_controller, selectedDateForEdit);
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Logged user out");
+        }
+
+        private void deleteAccountToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Deleted user and user's data");
         }
     }
 }

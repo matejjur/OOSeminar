@@ -73,6 +73,12 @@
     <Compile Include="RecordDetailsForm.Designer.cs">
       <DependentUpon>RecordDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecordEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecordEditForm.Designer.cs">
+      <DependentUpon>RecordEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="RecordDetailsForm.resx">
       <DependentUpon>RecordDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecordEditForm.resx">
+      <DependentUpon>RecordEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>

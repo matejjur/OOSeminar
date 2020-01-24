@@ -29,19 +29,24 @@ namespace Seminar.PresentationLayer
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
+        
+            //this.listView1.Columns.Add("Columns1");
+            //this.listView1.Columns.Add("Columns2");
+            //this.listView1.Columns.Add("Columns3");
         {
             this.addRecord = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.refreshButton = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.editButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // addRecord
             // 
-            this.addRecord.Location = new System.Drawing.Point(713, 54);
+            this.addRecord.Location = new System.Drawing.Point(713, 41);
             this.addRecord.Name = "addRecord";
             this.addRecord.Size = new System.Drawing.Size(75, 23);
             this.addRecord.TabIndex = 0;
@@ -51,13 +56,17 @@ namespace Seminar.PresentationLayer
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(12, 27);
+            this.listView1.Location = new System.Drawing.Point(12, 41);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(695, 411);
+            this.listView1.Size = new System.Drawing.Size(695, 397);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.editRecord);
+            this.listView1.DoubleClick += new System.EventHandler(this.showDetails);
+            this.listView1.Columns.Add("Columns1");
+            this.listView1.Columns.Add("Columns2");
+            this.listView1.Columns.Add("Columns3");
             // 
             // refreshButton
             // 
@@ -68,6 +77,20 @@ namespace Seminar.PresentationLayer
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // deleteAccountToolStripMenuItem
+            // 
+            this.deleteAccountToolStripMenuItem.Name = "deleteAccountToolStripMenuItem";
+            this.deleteAccountToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.deleteAccountToolStripMenuItem.Text = "Delete account";
+            this.deleteAccountToolStripMenuItem.Click += new System.EventHandler(this.deleteAccountToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -80,23 +103,22 @@ namespace Seminar.PresentationLayer
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // logoutToolStripMenuItem
+            // editButton
             // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            // 
-            // deleteAccountToolStripMenuItem
-            // 
-            this.deleteAccountToolStripMenuItem.Name = "deleteAccountToolStripMenuItem";
-            this.deleteAccountToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
-            this.deleteAccountToolStripMenuItem.Text = "Delete account";
+            this.editButton.Location = new System.Drawing.Point(713, 88);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(75, 23);
+            this.editButton.TabIndex = 4;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.addRecord);
@@ -116,8 +138,9 @@ namespace Seminar.PresentationLayer
         private System.Windows.Forms.Button addRecord;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button refreshButton;
-        private MenuStrip menuStrip1;
         private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem deleteAccountToolStripMenuItem;
+        private MenuStrip menuStrip1;
+        private Button editButton;
     }
 }
