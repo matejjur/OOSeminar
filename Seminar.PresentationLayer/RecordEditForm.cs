@@ -48,7 +48,7 @@ namespace Seminar.PresentationLayer
             _controller.DescriptionEditText(descriptionText.Text);
         }
 
-        private void feelingText_TextChanged(object sender, EventArgs e)
+        private void feelingText_SelectedIndexChanged(object sender, EventArgs e)
         {
             _controller.FeelingEditText(feelingText.Text);
         }

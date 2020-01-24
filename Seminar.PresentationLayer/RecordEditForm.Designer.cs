@@ -33,9 +33,9 @@
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.feelingText = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dateText = new System.Windows.Forms.TextBox();
+            this.feelingText = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -83,14 +83,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Date";
             // 
-            // feelingText
-            // 
-            this.feelingText.Location = new System.Drawing.Point(282, 242);
-            this.feelingText.Name = "feelingText";
-            this.feelingText.Size = new System.Drawing.Size(100, 20);
-            this.feelingText.TabIndex = 5;
-            this.feelingText.TextChanged += new System.EventHandler(this.feelingText_TextChanged);
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(306, 377);
@@ -109,14 +101,25 @@
             this.dateText.Size = new System.Drawing.Size(100, 20);
             this.dateText.TabIndex = 8;
             // 
+            // feelingText
+            // 
+            string[] feelings = new string[] { "Neutralno", "Happy", "Sad" };
+            feelingText.Items.AddRange(feelings);
+            this.feelingText.FormattingEnabled = true;
+            this.feelingText.Location = new System.Drawing.Point(261, 247);
+            this.feelingText.Name = "feelingText";
+            this.feelingText.Size = new System.Drawing.Size(121, 21);
+            this.feelingText.TabIndex = 9;
+            this.feelingText.SelectedIndexChanged += new System.EventHandler(this.feelingText_SelectedIndexChanged);
+            // 
             // RecordEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.feelingText);
             this.Controls.Add(this.dateText);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.feelingText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.descriptionLabel);
@@ -136,8 +139,8 @@
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox feelingText;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox dateText;
+        private System.Windows.Forms.ComboBox feelingText;
     }
 }

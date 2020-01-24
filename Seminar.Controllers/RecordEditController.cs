@@ -32,7 +32,6 @@ namespace Seminar.Controllers
         public void SaveEditChanges(string date, IRecordRepository recordRepository)
         {
             Record record = recordRepository.getRecordByID(date);
-
             record.Feeling = feeling;
             record.Description = description;
         }

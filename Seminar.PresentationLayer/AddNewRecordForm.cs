@@ -44,15 +44,26 @@ namespace Seminar.PresentationLayer
         }
 
         // date
-        private void AddNewRecordForm_Load(object sender, EventArgs e)
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             _controller.DateChange(dateTimePicker1.Text);
+            Console.WriteLine("DATUM");
+            Console.WriteLine(dateTimePicker1.Text);
         }
 
+        // date
         private void saveButton_Click(object sender, EventArgs e)
         {
-            _controller.SaveRecord();
-            this.Close();
+            bool success = _controller.SaveRecord();
+            if (success)
+            {
+                Close();
+            }
+            else
+            {
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                MessageBox.Show("Record with this date already exists", "Existing date error", button);
+            }
         }
     }
 }

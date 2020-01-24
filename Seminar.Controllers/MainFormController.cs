@@ -42,7 +42,7 @@ namespace Seminar.Controllers
         {
             var HomeView = windowFormsFactory.CreateHomeView(_controller);
 
-            return loginController.LoginUserController(HomeView, userRepository);
+            return loginController.LoginUserController(HomeView, userRepository, recordRepository);
         }
 
 
@@ -91,6 +91,13 @@ namespace Seminar.Controllers
             recordEditController.OpenRecordEdit(RecordEditView, recordRepository, id);
         }
 
+        public void Logout(MainFormController _controller)
+        {
+            Console.WriteLine("Logout user");
+            var LoginView = windowFormsFactory.CreateLoginUserView(_controller);
+            homeController.LogoutUser(LoginView);
+        }
+
 
         // add new record
         public void DescriptionTextChange(string input)
@@ -108,9 +115,9 @@ namespace Seminar.Controllers
             addRecordController.dateChange(input);
         }
 
-        public void SaveRecord()
+        public bool SaveRecord()
         {
-            addRecordController.CreateNewRecord(recordRepository);
+            return addRecordController.CreateNewRecord(recordRepository);
         }
 
 

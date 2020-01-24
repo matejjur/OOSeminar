@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar.BaseLib;
 using Seminar.Controllers;
+using Seminar.Model;
+using Seminar.Model.Repositories;
 
 namespace Seminar.PresentationLayer
 {
@@ -28,17 +30,27 @@ namespace Seminar.PresentationLayer
             InitializeComponent();
         }
 
-        private void HomeForm_Shown()
-        {
-            this.listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
-            this.listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
-            this.listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
-        }
-
+        //private void HomeForm_Shown()
+        //{
+        //    listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
+        //    listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
+        //    listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
+        //}
 
         public bool ShowViewModal()
         {
-            HomeForm_Shown();
+            Show();
+            return true;
+        }
+
+        public bool ShowViewModal(IRecordRepository recordRepository)
+        {
+            List<Record> allRecords = recordRepository.getAllRecords();
+            foreach (Record record in allRecords)
+            {
+                listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Description }));
+            }
+            // HomeForm_Shown();
             Show();
             return true;
         }
@@ -75,6 +87,7 @@ namespace Seminar.PresentationLayer
                 this.listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Description }));
             }
         }
+
         private void editButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Edit record with date: " + selectedDateForEdit);
@@ -83,7 +96,14 @@ namespace Seminar.PresentationLayer
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Logged user out");
+            MessageBoxButtons button = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show("Are you sure you want to logout", "Logout?", button);
+            if (result == DialogResult.Yes)
+            {
+                _controller.Logout(_controller);
+                Console.WriteLine("Logged user out");
+                Hide();
+            }
         }
 
         private void deleteAccountToolStripMenuItem_Click(object sender, EventArgs e)

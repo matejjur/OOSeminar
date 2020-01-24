@@ -29,10 +29,22 @@ namespace Seminar.Controllers
             date = input;
         }
 
-        public void CreateNewRecord(IRecordRepository recordRepository) 
+        public bool CreateNewRecord(IRecordRepository recordRepository) 
         {
+            Console.WriteLine("date " + date);
+            List<Record> allRecords = recordRepository.getAllRecords();
+            foreach (Record rec in allRecords)
+            {
+                Console.WriteLine(rec.Date);
+                if (rec.Date == date)
+                {
+                    return false;
+                }
+            }
+
             Record record = new Record(feeling, description, date);
             recordRepository.addNewRecord(record);
+            return true;
         }
 
     }

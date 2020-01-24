@@ -20,5 +20,9 @@ namespace Seminar.Controllers
             return recordRepository.getAllRecords();
         }
 
+        public void LogoutUser(ILoginUserView loginUserView) {
+            loginUserView.ShowViewModal();
+        }
+
     }
 }

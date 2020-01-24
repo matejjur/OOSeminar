@@ -79,12 +79,15 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 5;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // comboBox1
             // 
-            string[] feelings = new string[] { "Neutralno", "Happy", "Sad" };
-            comboBox1.Items.AddRange(feelings);
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Neutralno",
+            "Happy",
+            "Sad"});
             this.comboBox1.Location = new System.Drawing.Point(562, 235);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -104,7 +107,6 @@
             this.Controls.Add(this.label1);
             this.Name = "AddNewRecordForm";
             this.Text = "AddNewRecordForm";
-            this.Load += new System.EventHandler(this.AddNewRecordForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
