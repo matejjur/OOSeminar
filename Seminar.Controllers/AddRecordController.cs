@@ -29,10 +29,10 @@ namespace Seminar.Controllers
             date = input;
         }
 
-        public bool CreateNewRecord(IRecordRepository recordRepository) 
+        public bool CreateNewRecord(IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository) 
         {
             Console.WriteLine("date " + date);
-            List<Record> allRecords = recordRepository.getAllRecords();
+            List<Record> allRecords = recordRepository.getAllRecords(currentUserRepository.getUsername());
             foreach (Record rec in allRecords)
             {
                 Console.WriteLine(rec.Date);
@@ -43,7 +43,7 @@ namespace Seminar.Controllers
             }
 
             Record record = new Record(feeling, description, date);
-            recordRepository.addNewRecord(record);
+            recordRepository.addNewRecord(record, currentUserRepository.getUsername());
             return true;
         }
 

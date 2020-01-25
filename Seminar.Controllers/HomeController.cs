@@ -15,9 +15,9 @@ namespace Seminar.Controllers
             addNewRecordView.ShowViewModal();
         }
 
-        public List<Record> RefreshData(IRecordRepository recordRepository)
+        public List<Record> RefreshData(IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository)
         {
-            return recordRepository.getAllRecords();
+            return recordRepository.getAllRecords(currentUserRepository.getUsername());
         }
 
         public void LogoutUser(ILoginUserView loginUserView) {

@@ -6,11 +6,13 @@ namespace Seminar.Model.Repositories
 {
     public interface IRecordRepository
     {
-        void addNewRecord(Record record);
+        void addNewRecord(Record record, string currentUserUsername);
 
-        List<Record> getAllRecords();
+        List<Record> getAllRecords(string username);
 
         Record getRecordByID(string id);
+
+        void AddUserToDictionary(string username, List<Record> records);
 
     }
 }

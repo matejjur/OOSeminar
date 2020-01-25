@@ -87,7 +87,7 @@ namespace Seminar.Controllers
 
         public List<Record> RefreshData()
         {
-            return homeController.RefreshData(recordRepository);
+            return homeController.RefreshData(recordRepository, currentUserRepository);
         }
 
         public void OpenRecordDetails(MainFormController _controller, string id) // id je date
@@ -137,7 +137,7 @@ namespace Seminar.Controllers
 
         public bool SaveRecord()
         {
-            return addRecordController.CreateNewRecord(recordRepository);
+            return addRecordController.CreateNewRecord(recordRepository, currentUserRepository);
         }
 
 

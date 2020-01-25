@@ -2,6 +2,7 @@
 using Seminar.BaseLib;
 using Seminar.Model.Repositories;
 using Seminar.Model;
+using System.Collections.Generic;
 
 namespace Seminar.Controllers
 {
@@ -26,9 +27,10 @@ namespace Seminar.Controllers
         {
             if (usrRepo.checkCredentials(username, password))
             {
-                HomeView.ShowViewModal(recRepo); // saljes usrRepo tako da nakon sta se drugi put logira da povuce podatke
-                Console.WriteLine("Logged in user " + username + " passoword " + password);
                 currUsrRepo.setUsername(username);
+                recRepo.AddUserToDictionary(username, new List<Record>());
+                HomeView.ShowViewModal(recRepo, currUsrRepo); // saljes usrRepo tako da nakon sta se drugi put logira da povuce podatke
+                Console.WriteLine("Logged in user " + username + " password " + password);
                 return true;
             }
             Console.WriteLine("Wrong credentials");

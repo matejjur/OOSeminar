@@ -43,9 +43,9 @@ namespace Seminar.PresentationLayer
             return true;
         }
 
-        public bool ShowViewModal(IRecordRepository recordRepository)
+        public bool ShowViewModal(IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository)
         {
-            List<Record> allRecords = recordRepository.getAllRecords();
+            List<Record> allRecords = recordRepository.getAllRecords(currentUserRepository.getUsername());
             foreach (Record record in allRecords)
             {
                 listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Description }));

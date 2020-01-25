@@ -19,14 +19,28 @@ namespace Seminar.MemoryBasedDAL
             return _instance ?? (_instance = new RecordRepository());
         }
 
-        public void addNewRecord(Record record)
+        public void AddUserToDictionary(string username, List<Record> records)
         {
-            allRecords.Add(record);
+            if (!userRecords.ContainsKey(username))
+            {
+                userRecords.Add(username, records);
+            }
         }
 
-        public List<Record> getAllRecords()
+        public void addNewRecord(Record record, string currentUserUsername) // tu ide logika za dictionary
         {
-            return allRecords;
+            List<Record> temp = userRecords[currentUserUsername];
+            temp.Add(record);
+            userRecords[currentUserUsername] = temp;
+            // allRecords.Add(record);
+        }
+
+        public List<Record> getAllRecords(string username)
+        {
+            Console.WriteLine("Username");
+            Console.WriteLine(username);
+            return userRecords[username];
+            // return allRecords;
         }
 
         public Record getRecordByID(string id)
