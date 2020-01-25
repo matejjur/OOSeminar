@@ -19,6 +19,7 @@ namespace Seminar.PresentationLayer
 
         MainFormController _controller;
         private string selectedDateForEdit;
+        private bool feelingSort = true;
         public HomeForm()
         {
             InitializeComponent();
@@ -73,6 +74,24 @@ namespace Seminar.PresentationLayer
         {
             if (listView1.SelectedItems.Count == 0) return;
             selectedDateForEdit = listView1.SelectedItems[0].Text;
+        }
+
+        private void columnClick(object sender, ColumnClickEventArgs e)
+        {
+            int colIndex = Convert.ToInt32(e.Column.ToString());
+
+            if (colIndex == 1)
+            {
+                if (feelingSort)
+                {
+                    _controller.SortByFeeling(feelingSort);
+                }
+                else
+                {
+                    _controller.SortByFeeling(feelingSort);
+                }
+                feelingSort = !feelingSort;
+            }
         }
 
         private void refreshButton_Click(object sender, EventArgs e)

@@ -78,6 +78,7 @@ namespace Seminar.Controllers
             registrationController.GoToLogin(LoginView);
         }
 
+
         // home
         public void AddNewRecord(MainFormController _controller)
         {
@@ -116,6 +117,11 @@ namespace Seminar.Controllers
             Console.WriteLine("Delete user");
             var RegistrationView = windowFormsFactory.CreateRegistrationView(_controller);
             homeController.DeleteUser(RegistrationView, userRepository, recordRepository, currentUserRepository);
+        }
+
+        public void SortByFeeling(bool sort)
+        {
+            homeController.SortByFeeling(sort, recordRepository, currentUserRepository);
         }
 
 

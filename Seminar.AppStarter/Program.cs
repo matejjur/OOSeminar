@@ -17,7 +17,6 @@ namespace Seminar.AppStarter
             WindowFormsFactory formsFactory = new WindowFormsFactory();
             MainFormController mainController = new MainFormController(formsFactory, UserRepository.getInstance(), RecordRepository.getInstance(), CurrentUserRepository.getInstance());
 
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new RegistrationForm(mainController));

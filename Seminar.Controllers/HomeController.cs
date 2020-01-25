@@ -35,5 +35,10 @@ namespace Seminar.Controllers
             Console.WriteLine(userRepository.getAllUsers().Count);
         }
 
+        public void SortByFeeling(bool sort, IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository)
+        {
+            recordRepository.getAllSortedRecords(currentUserRepository.getUsername(), "feeling", sort);
+        }
+
     }
 }

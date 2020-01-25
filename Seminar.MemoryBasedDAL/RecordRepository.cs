@@ -4,6 +4,7 @@ using System.Text;
 using Seminar.Model.Repositories;
 using Seminar.Model;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Seminar.MemoryBasedDAL
 {
@@ -42,6 +43,25 @@ namespace Seminar.MemoryBasedDAL
             return userRecords[username];
             // return allRecords;
         }
+
+        public void getAllSortedRecords(string username, string sortBy, bool sort)
+        {
+            List<Record> temp = userRecords[username];
+            List<Record> sorted = null;
+            if (sortBy == "feeling")
+            {
+                if (sort)
+                {
+                    sorted = temp.OrderBy(o => o.Feeling).ToList();
+                }
+                else
+                {
+                    sorted = temp.OrderByDescending(o => o.Feeling).ToList();
+                }
+            }
+            userRecords[username] = sorted;
+        }
+
 
         public Record getRecordByID(string username, string id)
         {

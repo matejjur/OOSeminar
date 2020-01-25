@@ -10,6 +10,8 @@ namespace Seminar.Model.Repositories
 
         List<Record> getAllRecords(string username);
 
+        void getAllSortedRecords(string username, string sortBy, bool sort);
+
         Record getRecordByID(string username, string id);
 
         void AddUserToDictionary(string username, List<Record> records);
