@@ -13,9 +13,9 @@ namespace Seminar.Controllers
         private string description;
         private string feeling;
 
-        public void OpenRecordEdit(IRecordEditView recordEditView, IRecordRepository recordRepository, string date)
+        public void OpenRecordEdit(IRecordEditView recordEditView, IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository, string date)
         {
-            Record record = recordRepository.getRecordByID(date);
+            Record record = recordRepository.getRecordByID(currentUserRepository.getUsername(), date);
             recordEditView.ShowViewModal(record);
         }
 
@@ -29,9 +29,9 @@ namespace Seminar.Controllers
             feeling = input;
         }
 
-        public void SaveEditChanges(string date, IRecordRepository recordRepository)
+        public void SaveEditChanges(string date, IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository)
         {
-            Record record = recordRepository.getRecordByID(date);
+            Record record = recordRepository.getRecordByID(currentUserRepository.getUsername(), date);
             record.Feeling = feeling;
             record.Description = description;
         }

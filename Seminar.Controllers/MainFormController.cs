@@ -94,14 +94,14 @@ namespace Seminar.Controllers
         {
             Console.WriteLine("Open record details");
             var RecordDetailsView = windowFormsFactory.CreateRecordDetailsView(_controller);
-            recordDetailsController.OpenRecordDetails(RecordDetailsView, recordRepository, id);
+            recordDetailsController.OpenRecordDetails(RecordDetailsView, recordRepository, currentUserRepository, id);
         }
 
         public void OpenRecordEdit(MainFormController _controller, string id)
         {
             Console.WriteLine("Open record edit");
             var RecordEditView = windowFormsFactory.CreateRecordEditView(_controller);
-            recordEditController.OpenRecordEdit(RecordEditView, recordRepository, id);
+            recordEditController.OpenRecordEdit(RecordEditView, recordRepository, currentUserRepository, id);
         }
 
         public void Logout(MainFormController _controller)
@@ -154,7 +154,7 @@ namespace Seminar.Controllers
 
         public void SaveEditChanges(string date)
         {
-            recordEditController.SaveEditChanges(date, recordRepository);
+            recordEditController.SaveEditChanges(date, recordRepository, currentUserRepository);
         }
 
     }

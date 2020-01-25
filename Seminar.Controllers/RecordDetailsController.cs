@@ -10,9 +10,9 @@ namespace Seminar.Controllers
     class RecordDetailsController
     {
 
-        public void OpenRecordDetails(IRecordDetailsView recordDetailsView, IRecordRepository recordRepository, string id)
+        public void OpenRecordDetails(IRecordDetailsView recordDetailsView, IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository, string id)
         {
-            Record record = recordRepository.getRecordByID(id);
+            Record record = recordRepository.getRecordByID(currentUserRepository.getUsername(), id);
             recordDetailsView.ShowViewModal(record);
         }
 

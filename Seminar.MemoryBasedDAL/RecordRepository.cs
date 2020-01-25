@@ -12,7 +12,7 @@ namespace Seminar.MemoryBasedDAL
         private static RecordRepository _instance;
         private Dictionary<string, List<Record>> userRecords = new Dictionary<string, List<Record>>(); // username i njegovi recordsi
 
-        private List<Record> allRecords = new List<Record>();
+        //private List<Record> allRecords = new List<Record>();
 
         public static RecordRepository getInstance()
         {
@@ -43,9 +43,10 @@ namespace Seminar.MemoryBasedDAL
             // return allRecords;
         }
 
-        public Record getRecordByID(string id)
+        public Record getRecordByID(string username, string id)
         {
-            foreach (Record record in allRecords)
+            List<Record> currentUserRecords = userRecords[username];
+            foreach (Record record in currentUserRecords)
             {
                 if (record.Date == id)
                 {
