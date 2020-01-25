@@ -103,7 +103,7 @@
             // 
             // feelingText
             // 
-            string[] feelings = new string[] { "Neutralno", "Happy", "Sad" };
+            string[] feelings = new string[] { "Neutral", "Happy", "Sad" };
             feelingText.Items.AddRange(feelings);
             this.feelingText.FormattingEnabled = true;
             this.feelingText.Location = new System.Drawing.Point(261, 247);

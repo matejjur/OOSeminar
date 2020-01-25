@@ -55,5 +55,10 @@ namespace Seminar.MemoryBasedDAL
             }
             return new Record("Not found", "Not found", "Not found");
         }
+
+        public void deleteUserRecords(string username)
+        {
+            userRecords.Remove(username);
+        }
     }
 }

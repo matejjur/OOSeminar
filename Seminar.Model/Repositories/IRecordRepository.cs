@@ -14,5 +14,7 @@ namespace Seminar.Model.Repositories
 
         void AddUserToDictionary(string username, List<Record> records);
 
+        void deleteUserRecords(string username);
+
     }
 }

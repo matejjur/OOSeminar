@@ -115,7 +115,7 @@ namespace Seminar.Controllers
         {
             Console.WriteLine("Delete user");
             var RegistrationView = windowFormsFactory.CreateRegistrationView(_controller);
-            homeController.DeleteUser(RegistrationView, userRepository, currentUserRepository);
+            homeController.DeleteUser(RegistrationView, userRepository, recordRepository, currentUserRepository);
         }
 
 

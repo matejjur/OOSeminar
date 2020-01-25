@@ -54,6 +54,7 @@ namespace Seminar.PresentationLayer
         // date
         private void saveButton_Click(object sender, EventArgs e)
         {
+            _controller.DateChange(dateTimePicker1.Text); // u slucaju ako se ostavi defaultno, odnosno danasnji dan
             bool success = _controller.SaveRecord();
             if (success)
             {

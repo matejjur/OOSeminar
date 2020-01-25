@@ -24,10 +24,11 @@ namespace Seminar.Controllers
             loginUserView.ShowViewModal();
         }
 
-        public void DeleteUser(IRegistrationView registrationView, IUserRepository userRepository, ICurrentUserRepository currUsrRepo)
+        public void DeleteUser(IRegistrationView registrationView, IUserRepository userRepository, IRecordRepository recordRepository, ICurrentUserRepository currUsrRepo)
         {
             string currentUserUsername = currUsrRepo.getUsername();
             User user = userRepository.findUserByID(currentUserUsername);
+            recordRepository.deleteUserRecords(currentUserUsername);
             userRepository.DeleteUser(user);
             registrationView.ShowViewModal();
 
