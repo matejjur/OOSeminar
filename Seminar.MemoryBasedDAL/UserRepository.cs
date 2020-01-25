@@ -37,5 +37,22 @@ namespace Seminar.MemoryBasedDAL
         {
             return allUsers;
         }
+
+        public User findUserByID(string id)
+        {
+            foreach (User user in allUsers)
+            {
+                if (user.Username == id)
+                {
+                    return user;
+                }
+            }
+            return new User("Not found", "Not found");
+        }
+
+        public void DeleteUser(User user)
+        {
+            allUsers.Remove(user);
+        }
     }
 }

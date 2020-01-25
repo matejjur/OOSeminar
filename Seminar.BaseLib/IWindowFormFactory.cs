@@ -11,6 +11,7 @@ namespace Seminar.BaseLib
         IHomeView CreateHomeView();
         IHomeView CreateHomeView(IMainFormController mc);
         IRegistrationView CreateRegistrationView();
+        IRegistrationView CreateRegistrationView(IMainFormController mc);
         IAddNewRecordView CreateAddNewRecordView();
         IAddNewRecordView CreateAddNewRecordView(IMainFormController mc);
         IRecordDetailsView CreateRecordDetailsView();

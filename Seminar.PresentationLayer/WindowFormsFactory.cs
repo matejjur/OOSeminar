@@ -40,6 +40,12 @@ namespace Seminar.PresentationLayer
             return form;
         }
 
+        public IRegistrationView CreateRegistrationView(IMainFormController mc)
+        {
+            var form = new RegistrationForm((MainFormController)mc);
+            return form;
+        }
+
         public IAddNewRecordView CreateAddNewRecordView()
         {
             var form = new AddNewRecordForm();

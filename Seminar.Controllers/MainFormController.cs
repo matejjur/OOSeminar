@@ -12,6 +12,7 @@ namespace Seminar.Controllers
         private readonly IWindowFormFactory windowFormsFactory = null;
         private readonly IUserRepository userRepository = null;
         private readonly IRecordRepository recordRepository = null;
+        private readonly ICurrentUserRepository currentUserRepository = null;
 
         LoginController loginController = new LoginController();
         RegistrationController registrationController = new RegistrationController();
@@ -20,11 +21,12 @@ namespace Seminar.Controllers
         RecordDetailsController recordDetailsController = new RecordDetailsController();
         RecordEditController recordEditController = new RecordEditController();
 
-        public MainFormController(IWindowFormFactory winForFac, IUserRepository usrRepo, IRecordRepository rcdRepo)
+        public MainFormController(IWindowFormFactory winForFac, IUserRepository usrRepo, IRecordRepository rcdRepo, ICurrentUserRepository currUsrRepo)
         {
             windowFormsFactory = winForFac;
             userRepository = usrRepo;
             recordRepository = rcdRepo;
+            currentUserRepository = currUsrRepo;
         }
 
         // login
@@ -42,7 +44,7 @@ namespace Seminar.Controllers
         {
             var HomeView = windowFormsFactory.CreateHomeView(_controller);
 
-            return loginController.LoginUserController(HomeView, userRepository, recordRepository);
+            return loginController.LoginUserController(HomeView, userRepository, recordRepository, currentUserRepository);
         }
 
 
@@ -96,6 +98,13 @@ namespace Seminar.Controllers
             Console.WriteLine("Logout user");
             var LoginView = windowFormsFactory.CreateLoginUserView(_controller);
             homeController.LogoutUser(LoginView);
+        }
+
+        public void DeleteAccount(MainFormController _controller)
+        {
+            Console.WriteLine("Delete user");
+            var RegistrationView = windowFormsFactory.CreateRegistrationView(_controller);
+            homeController.DeleteUser(RegistrationView, userRepository, currentUserRepository);
         }
 
 

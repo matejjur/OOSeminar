@@ -10,6 +10,8 @@ namespace Seminar.MemoryBasedDAL
     public class RecordRepository : IRecordRepository
     {
         private static RecordRepository _instance;
+        private Dictionary<string, List<Record>> userRecords = new Dictionary<string, List<Record>>();
+
         private List<Record> allRecords = new List<Record>();
 
         public static RecordRepository getInstance()

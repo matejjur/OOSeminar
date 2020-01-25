@@ -108,7 +108,21 @@ namespace Seminar.PresentationLayer
 
         private void deleteAccountToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Deleted user and user's data");
+            MessageBoxButtons button1 = MessageBoxButtons.YesNo;
+            string warningMessage = "Are you sure you want delete your account? All data will be lost. This action is not reversible.";
+            DialogResult result1 = MessageBox.Show(warningMessage, "Delete account?", button1);
+            if (result1 == DialogResult.Yes)
+            {
+                MessageBoxButtons button2 = MessageBoxButtons.YesNo;
+                string lastWarningMessage = "This is your final warning!";
+                DialogResult result2 = MessageBox.Show(lastWarningMessage, "Delete account?", button2);
+                if (result2 == DialogResult.Yes)
+                {
+                    _controller.DeleteAccount(_controller);
+                    Console.WriteLine("User deleted");
+                    Hide();
+                }
+            }
         }
     }
 }

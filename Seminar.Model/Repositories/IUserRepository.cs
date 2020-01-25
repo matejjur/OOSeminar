@@ -9,5 +9,7 @@ namespace Seminar.Model.Repositories
         void saveUser(User user);
         bool checkCredentials(string username, string password);
         List<User> getAllUsers();
+        User findUserByID(string id);
+        void DeleteUser(User user);
     }
 }
