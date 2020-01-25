@@ -75,16 +75,15 @@ namespace Seminar.PresentationLayer
             selectedDateForEdit = listView1.SelectedItems[0].Text;
         }
 
-
-        /* TODO napraviti da uzme samo one ciji su indeksi veci od this.listView1.Items.Count */
         private void refreshButton_Click(object sender, EventArgs e)
         {
             // HomeForm_Shown();
+            listView1.Items.Clear();
             var records = _controller.RefreshData();
             foreach (var record in records)
             {
                 Console.WriteLine(record.Description);
-                this.listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Description }));
+                listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Description }));
             }
         }
 
