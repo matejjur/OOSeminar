@@ -59,5 +59,11 @@ namespace Seminar.PresentationLayer
         }
 
         private void Login_Click(object sender, EventArgs e) {}
+
+        private void registrationButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            _controller.GoToRegistration(_controller);
+        }
     }
 }

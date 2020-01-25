@@ -9,7 +9,7 @@ namespace Seminar.MemoryBasedDAL
     {
 
         private static CurrentUserRepository _instance;
-        public string Username { get; set; }
+        private string Username;
 
         public static CurrentUserRepository getInstance()
         {

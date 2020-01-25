@@ -47,6 +47,12 @@ namespace Seminar.Controllers
             return loginController.LoginUserController(HomeView, userRepository, recordRepository, currentUserRepository);
         }
 
+        public void GoToRegistration(MainFormController _controller)
+        {
+            var RegistrationView = windowFormsFactory.CreateRegistrationView(_controller);
+            loginController.GoToRegistration(RegistrationView);
+        }
+
 
         // registration
         public void UsernameInputRegistration(string input)
@@ -66,6 +72,11 @@ namespace Seminar.Controllers
             return registrationController.RegisterUserController(LoginView, userRepository);
         }
 
+        public void GoToLogin(MainFormController _controller)
+        {
+            var LoginView = windowFormsFactory.CreateLoginUserView(_controller);
+            registrationController.GoToLogin(LoginView);
+        }
 
         // home
         public void AddNewRecord(MainFormController _controller)

@@ -40,5 +40,10 @@ namespace Seminar.Controllers
             return "User registered";
         }
 
+        public void GoToLogin(ILoginUserView LoginView)
+        {
+            LoginView.ShowViewModal();
+        }
+
     }
 }

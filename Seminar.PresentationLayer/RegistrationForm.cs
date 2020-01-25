@@ -58,5 +58,11 @@ namespace Seminar.PresentationLayer
             Show();
             return true;
         }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            _controller.GoToLogin(_controller);
+        }
     }
 }

@@ -27,13 +27,17 @@ namespace Seminar.Controllers
             if (usrRepo.checkCredentials(username, password))
             {
                 HomeView.ShowViewModal(recRepo); // saljes usrRepo tako da nakon sta se drugi put logira da povuce podatke
-                Console.WriteLine("Logged in user");
-                Console.WriteLine("Username " + username + " password " + password);
+                Console.WriteLine("Logged in user " + username + " passoword " + password);
                 currUsrRepo.setUsername(username);
                 return true;
             }
             Console.WriteLine("Wrong credentials");
             return false;
+        }
+
+        public void GoToRegistration(IRegistrationView RegistrationView)
+        {
+            RegistrationView.ShowViewModal();
         }
     }
 }
