@@ -72,9 +72,9 @@ namespace Seminar.PresentationLayer
             this.listView1.Columns.Add("Date");
             this.listView1.Columns.Add("Feeling");
             this.listView1.Columns.Add("Keywords");
-            this.listView1.Columns[0].Width = 80;
-            this.listView1.Columns[1].Width = 70;
-            this.listView1.Columns[2].Width = 200;
+            this.listView1.Columns[0].Width = 70;
+            this.listView1.Columns[1].Width = 80;
+            this.listView1.Columns[2].Width = 190;
             // 
             // refreshButton
             // 

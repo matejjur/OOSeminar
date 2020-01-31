@@ -6,7 +6,6 @@ namespace Seminar.BaseLib
 {
     public interface IObserver
     {
-        void Update();
-
+        void Updt();
     }
 }

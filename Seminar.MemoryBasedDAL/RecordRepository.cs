@@ -5,13 +5,16 @@ using Seminar.Model.Repositories;
 using Seminar.Model;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Seminar.BaseLib;
 
 namespace Seminar.MemoryBasedDAL
 {
-    public class RecordRepository : IRecordRepository
+    public class RecordRepository : IRecordRepository, IObservable
     {
         private static RecordRepository _instance;
         private Dictionary<string, List<Record>> userRecords = new Dictionary<string, List<Record>>(); // username i njegovi recordsi
+
+        public List<IObserver> _listObservers = new List<IObserver>();
 
         //private List<Record> allRecords = new List<Record>();
 
@@ -33,6 +36,7 @@ namespace Seminar.MemoryBasedDAL
             Console.WriteLine(record.Date);
             List<Record> temp = userRecords[currentUserUsername];
             temp.Add(record);
+            NotifyObservers();
             userRecords[currentUserUsername] = temp;
             // allRecords.Add(record);
         }
@@ -80,8 +84,8 @@ namespace Seminar.MemoryBasedDAL
                 }
             }
             userRecords[username] = sorted;
+            NotifyObservers();
         }
-
 
         public Record getRecordByID(string username, string id)
         {
@@ -99,6 +103,22 @@ namespace Seminar.MemoryBasedDAL
         public void deleteUserRecords(string username)
         {
             userRecords.Remove(username);
+        }
+
+        public void Attach(IObserver obs)
+        {
+            _listObservers.Add(obs);
+        }
+
+        public void Delete(IObserver obs)
+        {
+            _listObservers.Remove(obs);
+        }
+
+        public void NotifyObservers()
+        {
+            foreach (IObserver obs in _listObservers)
+                obs.Updt();
         }
     }
 }

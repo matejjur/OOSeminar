@@ -111,7 +111,11 @@
             this.feelingText.Items.AddRange(new object[] {
             "Neutral",
             "Happy",
-            "Sad"});
+            "Sad",
+            "Angry",
+            "Disappointed",
+            "Stressed",
+            "Satisfied"});
             this.feelingText.Location = new System.Drawing.Point(576, 83);
             this.feelingText.Name = "feelingText";
             this.feelingText.Size = new System.Drawing.Size(121, 21);

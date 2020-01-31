@@ -98,7 +98,11 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Neutral",
             "Happy",
-            "Sad"});
+            "Sad",
+            "Angry",
+            "Disappointed",
+            "Stressed",
+            "Satisfied"});
             this.comboBox1.Location = new System.Drawing.Point(556, 75);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);

@@ -14,7 +14,7 @@ using Seminar.Model.Repositories;
 
 namespace Seminar.PresentationLayer
 {
-    public partial class HomeForm : Form, IHomeView
+    public partial class HomeForm : Form, IHomeView, IObserver
     {
 
         MainFormController _controller;
@@ -38,6 +38,17 @@ namespace Seminar.PresentationLayer
         //    listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
         //    listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
         //}
+
+        public void Updt()
+        {
+            listView1.Items.Clear();
+            var records = _controller.RefreshData();
+            foreach (var record in records)
+            {
+                Console.WriteLine(record.Description);
+                listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Keywords }));
+            }
+        }
 
         public bool ShowViewModal()
         {

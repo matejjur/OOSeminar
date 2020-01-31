@@ -43,6 +43,8 @@ namespace Seminar.Controllers
         public bool LoginUser(MainFormController _controller)
         {
             var HomeView = windowFormsFactory.CreateHomeView(_controller);
+            
+            loginController.addObserver((IObserver)HomeView, (IObservable)recordRepository);
 
             return loginController.LoginUserController(HomeView, userRepository, recordRepository, currentUserRepository);
         }

@@ -23,6 +23,11 @@ namespace Seminar.Controllers
             password = input;
         }
 
+        public void addObserver(IObserver HomeView, IObservable recordRepository)
+        {
+            recordRepository.Attach(HomeView);
+        }
+
         public bool LoginUserController(IHomeView HomeView, IUserRepository usrRepo, IRecordRepository recRepo, ICurrentUserRepository currUsrRepo)
         {
             if (usrRepo.checkCredentials(username, password))

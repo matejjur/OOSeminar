@@ -48,6 +48,8 @@ namespace Seminar.Controllers
             record.Description = description;
             record.Diet = diet;
             record.Keywords = keywords;
+
+            ((IObservable)recordRepository).NotifyObservers();
         }
 
     }
