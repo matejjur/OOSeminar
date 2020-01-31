@@ -93,7 +93,7 @@ namespace Seminar.MemoryBasedDAL
                     return record;
                 }
             }
-            return new Record("Not found", "Not found", "Not found");
+            return new Record("Not found", "Not found", "Not found", "Not found", "Not found");
         }
 
         public void deleteUserRecords(string username)

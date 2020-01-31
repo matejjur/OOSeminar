@@ -37,9 +37,11 @@ namespace Seminar.PresentationLayer
 
         public bool ShowViewModal(Record record)
         {
-            this.feelingText.Text = record.Feeling;
-            this.descriptionText.Text = record.Description;
-            this.dateText.Text = record.Date;
+            feelingText.Text = record.Feeling;
+            descriptionText.Text = record.Description;
+            dateText.Text = record.Date;
+            dietText.Text = record.Diet;
+            keywordsText.Text = record.Keywords;
             Show();
             return true;
         }

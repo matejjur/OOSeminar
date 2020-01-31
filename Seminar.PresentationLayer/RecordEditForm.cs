@@ -39,6 +39,8 @@ namespace Seminar.PresentationLayer
             feelingText.Text = record.Feeling;
             descriptionText.Text = record.Description;
             dateText.Text = record.Date;
+            dietText.Text = record.Diet;
+            keywordsText.Text = record.Keywords;
             Show();
             return true;
         }
@@ -46,6 +48,16 @@ namespace Seminar.PresentationLayer
         private void descriptionText_TextChanged(object sender, EventArgs e)
         {
             _controller.DescriptionEditText(descriptionText.Text);
+        }
+
+        private void dietText_TextChanged(object sender, EventArgs e)
+        {
+            _controller.DietEditText(dietText.Text);
+        }
+
+        private void keywordsText_TextChanged(object sender, EventArgs e)
+        {
+            _controller.KeywordsEditText(keywordsText.Text);
         }
 
         private void feelingText_SelectedIndexChanged(object sender, EventArgs e)

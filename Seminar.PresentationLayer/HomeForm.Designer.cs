@@ -1,5 +1,4 @@
 ﻿using System.Windows.Forms;
-using System.Windows.Forms;
 
 namespace Seminar.PresentationLayer
 {
@@ -30,10 +29,14 @@ namespace Seminar.PresentationLayer
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
-        
-            //this.listView1.Columns.Add("Columns1");
-            //this.listView1.Columns.Add("Columns2");
-            //this.listView1.Columns.Add("Columns3");
+            
+            //this.listView1.Columns.Add("Date");
+            //this.listView1.Columns.Add("Feeling");
+            //this.listView1.Columns.Add("Keywords");
+            //this.listView1.Columns[0].Width = 80;
+            //this.listView1.Columns[1].Width = 70;
+            //this.listView1.Columns[2].Width = 190;
+
         {
             this.addRecord = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -47,7 +50,7 @@ namespace Seminar.PresentationLayer
             // 
             // addRecord
             // 
-            this.addRecord.Location = new System.Drawing.Point(713, 41);
+            this.addRecord.Location = new System.Drawing.Point(366, 41);
             this.addRecord.Name = "addRecord";
             this.addRecord.Size = new System.Drawing.Size(75, 23);
             this.addRecord.TabIndex = 0;
@@ -57,22 +60,25 @@ namespace Seminar.PresentationLayer
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(12, 41);
+            this.listView1.Location = new System.Drawing.Point(10, 41);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(695, 397);
+            this.listView1.Size = new System.Drawing.Size(350, 162);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.columnClick);
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.editRecord);
             this.listView1.DoubleClick += new System.EventHandler(this.showDetails);
             this.listView1.Columns.Add("Date");
             this.listView1.Columns.Add("Feeling");
-            this.listView1.Columns.Add("Columns3");
-            this.listView1.ColumnClick += new ColumnClickEventHandler(this.columnClick);
+            this.listView1.Columns.Add("Keywords");
+            this.listView1.Columns[0].Width = 80;
+            this.listView1.Columns[1].Width = 70;
+            this.listView1.Columns[2].Width = 200;
             // 
             // refreshButton
             // 
-            this.refreshButton.Location = new System.Drawing.Point(712, 414);
+            this.refreshButton.Location = new System.Drawing.Point(366, 180);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(75, 23);
             this.refreshButton.TabIndex = 2;
@@ -101,13 +107,13 @@ namespace Seminar.PresentationLayer
             this.deleteAccountToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(453, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(713, 88);
+            this.editButton.Location = new System.Drawing.Point(366, 70);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 23);
             this.editButton.TabIndex = 4;
@@ -119,7 +125,7 @@ namespace Seminar.PresentationLayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(453, 227);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.listView1);

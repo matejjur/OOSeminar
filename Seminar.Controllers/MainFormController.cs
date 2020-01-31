@@ -136,6 +136,16 @@ namespace Seminar.Controllers
             addRecordController.descriptionChange(input);
         }
 
+        public void DietTextChange(string input)
+        {
+            addRecordController.dietChange(input);
+        }
+
+        public void KeywordsTextChange(string input)
+        {
+            addRecordController.keywordsChange(input);
+        }
+
         public void FeelingChange(string input)
         {
             addRecordController.feelingChange(input);
@@ -152,7 +162,7 @@ namespace Seminar.Controllers
         }
 
 
-        // record details
+        // edit record details
         public void DescriptionEditText(string input)
         {
             recordEditController.DescriptionEditText(input);
@@ -163,10 +173,19 @@ namespace Seminar.Controllers
             recordEditController.FeelingEditText(input);
         }
 
+        public void DietEditText(string input)
+        {
+            recordEditController.DietEditText(input);
+        }
+
+        public void KeywordsEditText(string input)
+        {
+            recordEditController.KeywordsEditText(input);
+        }
+
         public void SaveEditChanges(string date)
         {
             recordEditController.SaveEditChanges(date, recordRepository, currentUserRepository);
         }
-
     }
 }

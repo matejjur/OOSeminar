@@ -37,6 +37,16 @@ namespace Seminar.PresentationLayer
             _controller.DescriptionTextChange(descriptionText.Text);
         }
 
+        private void dietText_TextChanged(object sender, EventArgs e)
+        {
+            _controller.DietTextChange(dietText.Text);
+        }
+
+        private void keywordsText_TextChanged(object sender, EventArgs e)
+        {
+            _controller.KeywordsTextChange(keywordsText.Text);
+        }
+
         // feeling
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

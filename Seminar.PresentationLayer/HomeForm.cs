@@ -50,7 +50,7 @@ namespace Seminar.PresentationLayer
             List<Record> allRecords = recordRepository.getAllRecords(currentUserRepository.getUsername());
             foreach (Record record in allRecords)
             {
-                listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Description }));
+                listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Keywords }));
             }
             // HomeForm_Shown();
             Show();
@@ -115,7 +115,7 @@ namespace Seminar.PresentationLayer
             foreach (var record in records)
             {
                 Console.WriteLine(record.Description);
-                listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Description }));
+                listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Keywords }));
             }
         }
 

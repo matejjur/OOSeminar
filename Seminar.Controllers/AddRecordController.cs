@@ -12,11 +12,18 @@ namespace Seminar.Controllers
         public string feeling;
         public string description;
         public string date;
+        public string diet;
+        public string keywords;
 
 
         public void descriptionChange(string input)
         {
             description = input;
+        }
+
+        public void dietChange(string input)
+        {
+            diet = input;
         }
 
         public void feelingChange(string input)
@@ -27,6 +34,11 @@ namespace Seminar.Controllers
         public void dateChange(string input)
         {
             date = input;
+        }
+
+        public void keywordsChange(string input)
+        {
+            keywords = input;
         }
 
         public bool CreateNewRecord(IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository) 
@@ -42,7 +54,7 @@ namespace Seminar.Controllers
                 }
             }
 
-            Record record = new Record(feeling, description, date);
+            Record record = new Record(feeling, description, date, diet, keywords);
             recordRepository.addNewRecord(record, currentUserRepository.getUsername());
             return true;
         }

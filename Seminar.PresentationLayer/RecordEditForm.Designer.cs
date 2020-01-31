@@ -36,12 +36,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dateText = new System.Windows.Forms.TextBox();
             this.feelingText = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dietText = new System.Windows.Forms.TextBox();
+            this.keywordsText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(389, 38);
+            this.label1.Location = new System.Drawing.Point(403, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(25, 13);
             this.label1.TabIndex = 0;
@@ -49,17 +53,17 @@
             // 
             // descriptionText
             // 
-            this.descriptionText.Location = new System.Drawing.Point(215, 94);
+            this.descriptionText.Location = new System.Drawing.Point(165, 128);
             this.descriptionText.Multiline = true;
             this.descriptionText.Name = "descriptionText";
-            this.descriptionText.Size = new System.Drawing.Size(224, 86);
+            this.descriptionText.Size = new System.Drawing.Size(532, 107);
             this.descriptionText.TabIndex = 1;
             this.descriptionText.TextChanged += new System.EventHandler(this.descriptionText_TextChanged);
             // 
             // descriptionLabel
             // 
             this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Location = new System.Drawing.Point(123, 131);
+            this.descriptionLabel.Location = new System.Drawing.Point(69, 180);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(60, 13);
             this.descriptionLabel.TabIndex = 2;
@@ -68,7 +72,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(147, 250);
+            this.label2.Location = new System.Drawing.Point(494, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 3;
@@ -77,7 +81,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(147, 314);
+            this.label3.Location = new System.Drawing.Point(99, 91);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 4;
@@ -85,7 +89,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(306, 377);
+            this.button1.Location = new System.Drawing.Point(386, 399);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -95,28 +99,70 @@
             // 
             // dateText
             // 
-            this.dateText.Location = new System.Drawing.Point(282, 307);
+            this.dateText.Location = new System.Drawing.Point(165, 84);
             this.dateText.Name = "dateText";
             this.dateText.ReadOnly = true;
-            this.dateText.Size = new System.Drawing.Size(100, 20);
+            this.dateText.Size = new System.Drawing.Size(141, 20);
             this.dateText.TabIndex = 8;
             // 
             // feelingText
             // 
-            string[] feelings = new string[] { "Neutral", "Happy", "Sad" };
-            feelingText.Items.AddRange(feelings);
             this.feelingText.FormattingEnabled = true;
-            this.feelingText.Location = new System.Drawing.Point(261, 247);
+            this.feelingText.Items.AddRange(new object[] {
+            "Neutral",
+            "Happy",
+            "Sad"});
+            this.feelingText.Location = new System.Drawing.Point(576, 83);
             this.feelingText.Name = "feelingText";
             this.feelingText.Size = new System.Drawing.Size(121, 21);
             this.feelingText.TabIndex = 9;
             this.feelingText.SelectedIndexChanged += new System.EventHandler(this.feelingText_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(475, 294);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Keywords";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(103, 294);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(26, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Diet";
+            // 
+            // dietText
+            // 
+            this.dietText.Location = new System.Drawing.Point(165, 253);
+            this.dietText.Multiline = true;
+            this.dietText.Name = "dietText";
+            this.dietText.Size = new System.Drawing.Size(276, 107);
+            this.dietText.TabIndex = 12;
+            this.dietText.TextChanged += new System.EventHandler(this.dietText_TextChanged);
+            // 
+            // keywordsText
+            // 
+            this.keywordsText.Location = new System.Drawing.Point(534, 253);
+            this.keywordsText.Multiline = true;
+            this.keywordsText.Name = "keywordsText";
+            this.keywordsText.Size = new System.Drawing.Size(163, 107);
+            this.keywordsText.TabIndex = 13;
+            this.keywordsText.TextChanged += new System.EventHandler(this.keywordsText_TextChanged);
             // 
             // RecordEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.keywordsText);
+            this.Controls.Add(this.dietText);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.feelingText);
             this.Controls.Add(this.dateText);
             this.Controls.Add(this.button1);
@@ -142,5 +188,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox dateText;
         private System.Windows.Forms.ComboBox feelingText;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox dietText;
+        private System.Windows.Forms.TextBox keywordsText;
     }
 }
