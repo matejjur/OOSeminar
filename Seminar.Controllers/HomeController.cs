@@ -40,5 +40,10 @@ namespace Seminar.Controllers
             recordRepository.getAllSortedRecords(currentUserRepository.getUsername(), "feeling", sort);
         }
 
+        public void SortByDate(bool sort, IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository)
+        {
+            recordRepository.getAllSortedRecords(currentUserRepository.getUsername(), "date", sort);
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System.Windows.Forms;
 
 namespace Seminar.PresentationLayer
 {
@@ -65,7 +66,7 @@ namespace Seminar.PresentationLayer
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.editRecord);
             this.listView1.DoubleClick += new System.EventHandler(this.showDetails);
             this.listView1.Columns.Add("Date");
-            this.listView1.Columns.Add("Columns2");
+            this.listView1.Columns.Add("Feeling");
             this.listView1.Columns.Add("Columns3");
             this.listView1.ColumnClick += new ColumnClickEventHandler(this.columnClick);
             // 

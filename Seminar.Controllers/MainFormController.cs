@@ -124,6 +124,11 @@ namespace Seminar.Controllers
             homeController.SortByFeeling(sort, recordRepository, currentUserRepository);
         }
 
+        public void SortByDate(bool sort)
+        {
+            homeController.SortByDate(sort, recordRepository, currentUserRepository);
+        }
+
 
         // add new record
         public void DescriptionTextChange(string input)

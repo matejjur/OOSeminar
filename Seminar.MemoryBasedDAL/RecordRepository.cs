@@ -30,6 +30,7 @@ namespace Seminar.MemoryBasedDAL
 
         public void addNewRecord(Record record, string currentUserUsername) // tu ide logika za dictionary
         {
+            Console.WriteLine(record.Date);
             List<Record> temp = userRecords[currentUserUsername];
             temp.Add(record);
             userRecords[currentUserUsername] = temp;
@@ -57,6 +58,25 @@ namespace Seminar.MemoryBasedDAL
                 else
                 {
                     sorted = temp.OrderByDescending(o => o.Feeling).ToList();
+                }
+            }
+            else if (sortBy == "date")
+            {
+                if (sort)
+                {
+                    sorted = temp.OrderBy(o => {
+                        DateTime dt;
+                        DateTime.TryParse(o.Date, out dt);
+                        return dt;
+                    }).ToList();
+                }
+                else
+                {
+                    sorted = temp.OrderByDescending(o => {
+                        DateTime dt;
+                        DateTime.TryParse(o.Date, out dt);
+                        return dt;
+                    }).ToList();
                 }
             }
             userRecords[username] = sorted;

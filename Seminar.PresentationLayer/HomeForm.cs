@@ -20,6 +20,7 @@ namespace Seminar.PresentationLayer
         MainFormController _controller;
         private string selectedDateForEdit;
         private bool feelingSort = true;
+        private bool dateSort = true;
         public HomeForm()
         {
             InitializeComponent();
@@ -91,6 +92,18 @@ namespace Seminar.PresentationLayer
                     _controller.SortByFeeling(feelingSort);
                 }
                 feelingSort = !feelingSort;
+            }
+            else if (colIndex == 0)
+            {
+                if (dateSort)
+                {
+                    _controller.SortByDate(dateSort);
+                }
+                else
+                {
+                    _controller.SortByDate(dateSort);
+                }
+                dateSort = !dateSort;
             }
         }
 
