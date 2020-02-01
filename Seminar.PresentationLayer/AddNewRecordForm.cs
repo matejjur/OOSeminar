@@ -65,15 +65,20 @@ namespace Seminar.PresentationLayer
         private void saveButton_Click(object sender, EventArgs e)
         {
             _controller.DateChange(dateTimePicker1.Text); // u slucaju ako se ostavi defaultno, odnosno danasnji dan
-            bool success = _controller.SaveRecord();
-            if (success)
+            string successMessage = _controller.SaveRecord();
+            if (successMessage == "")
             {
                 Close();
             }
-            else
+            else if (successMessage == "dateError")
             {
                 MessageBoxButtons button = MessageBoxButtons.OK;
                 MessageBox.Show("Record with this date already exists", "Existing date error", button);
+            }
+            else if (successMessage == "feelingError") 
+            {
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                MessageBox.Show("You have to enter your feeling", "Missing feeling error", button);
             }
         }
     }

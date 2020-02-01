@@ -10,6 +10,9 @@ namespace Seminar.Controllers
     class HomeController
     {
 
+        private string feelingFilterText;
+        private string keywordsFilterText;
+
         public void AddNewRecord(IAddNewRecordView addNewRecordView, IRecordRepository recordRepository)
         {
             addNewRecordView.ShowViewModal();
@@ -43,6 +46,21 @@ namespace Seminar.Controllers
         public void SortByDate(bool sort, IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository)
         {
             recordRepository.getAllSortedRecords(currentUserRepository.getUsername(), "date", sort);
+        }
+
+        public void feelingFilter(string input)
+        {
+            feelingFilterText = input;
+        }
+
+        public void keywordsFilter(string input)
+        {
+            keywordsFilterText = input;
+        }
+
+        public void FilterRecords(IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository)
+        {
+            recordRepository.getFilteredRecords(currentUserRepository.getUsername(), feelingFilterText, keywordsFilterText);
         }
 
     }

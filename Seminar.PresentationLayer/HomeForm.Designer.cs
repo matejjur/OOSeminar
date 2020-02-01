@@ -40,11 +40,15 @@ namespace Seminar.PresentationLayer
         {
             this.addRecord = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.refreshButton = new System.Windows.Forms.Button();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.editButton = new System.Windows.Forms.Button();
+            this.feelingDropdown = new System.Windows.Forms.ComboBox();
+            this.keywordsText = new System.Windows.Forms.TextBox();
+            this.filterButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,19 +76,9 @@ namespace Seminar.PresentationLayer
             this.listView1.Columns.Add("Date");
             this.listView1.Columns.Add("Feeling");
             this.listView1.Columns.Add("Keywords");
-            this.listView1.Columns[0].Width = 70;
-            this.listView1.Columns[1].Width = 80;
+            this.listView1.Columns[0].Width = 80;
+            this.listView1.Columns[1].Width = 70;
             this.listView1.Columns[2].Width = 190;
-            // 
-            // refreshButton
-            // 
-            this.refreshButton.Location = new System.Drawing.Point(366, 180);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(75, 23);
-            this.refreshButton.TabIndex = 2;
-            this.refreshButton.Text = "Refresh";
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // logoutToolStripMenuItem
             // 
@@ -121,13 +115,73 @@ namespace Seminar.PresentationLayer
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
+            // feelingDropdown
+            // 
+            this.feelingDropdown.FormattingEnabled = true;
+            this.feelingDropdown.Items.AddRange(new object[] {
+            "",
+            "Neutral",
+            "Happy",
+            "Sad",
+            "Angry",
+            "Disappointed",
+            "Stressed",
+            "Satisfied"});
+            this.feelingDropdown.Location = new System.Drawing.Point(59, 209);
+            this.feelingDropdown.Name = "feelingDropdown";
+            this.feelingDropdown.Text = "";
+            this.feelingDropdown.Size = new System.Drawing.Size(121, 21);
+            this.feelingDropdown.TabIndex = 5;
+            this.feelingDropdown.SelectedIndexChanged += new System.EventHandler(this.feelingDropdown_SelectedIndexChanged);
+            // 
+            // keywordsText
+            // 
+            this.keywordsText.Location = new System.Drawing.Point(260, 210);
+            this.keywordsText.Name = "keywordsText";
+            this.keywordsText.Text = "";
+            this.keywordsText.Size = new System.Drawing.Size(100, 20);
+            this.keywordsText.TabIndex = 6;
+            this.keywordsText.TextChanged += new System.EventHandler(this.keywordsText_TextChanged);
+            // 
+            // filterButton
+            // 
+            this.filterButton.Location = new System.Drawing.Point(366, 209);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(75, 22);
+            this.filterButton.TabIndex = 7;
+            this.filterButton.Text = "Filter";
+            this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(201, 213);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Keywords";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 213);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Feeling";
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 227);
+            this.ClientSize = new System.Drawing.Size(453, 250);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.filterButton);
+            this.Controls.Add(this.keywordsText);
+            this.Controls.Add(this.feelingDropdown);
             this.Controls.Add(this.editButton);
-            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.addRecord);
             this.Controls.Add(this.menuStrip1);
@@ -145,10 +199,14 @@ namespace Seminar.PresentationLayer
 
         private System.Windows.Forms.Button addRecord;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button refreshButton;
         private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem deleteAccountToolStripMenuItem;
         private MenuStrip menuStrip1;
         private Button editButton;
+        private ComboBox feelingDropdown;
+        private TextBox keywordsText;
+        private Button filterButton;
+        private Label label1;
+        private Label label2;
     }
 }

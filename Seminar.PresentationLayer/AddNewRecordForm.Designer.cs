@@ -40,16 +40,18 @@
             this.dietText = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.keywordsText = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(374, 26);
+            this.label1.Location = new System.Drawing.Point(352, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.Size = new System.Drawing.Size(120, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Add new record";
             // 
@@ -148,7 +150,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(459, 291);
+            this.label6.Location = new System.Drawing.Point(437, 291);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 11;
@@ -156,18 +158,28 @@
             // 
             // keywordsText
             // 
-            this.keywordsText.Location = new System.Drawing.Point(518, 242);
+            this.keywordsText.Location = new System.Drawing.Point(496, 242);
             this.keywordsText.Multiline = true;
             this.keywordsText.Name = "keywordsText";
-            this.keywordsText.Size = new System.Drawing.Size(159, 110);
+            this.keywordsText.Size = new System.Drawing.Size(181, 110);
             this.keywordsText.TabIndex = 12;
             this.keywordsText.TextChanged += new System.EventHandler(this.keywordsText_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(493, 355);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(187, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Enter keywords with a space between";
             // 
             // AddNewRecordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 428);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.keywordsText);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dietText);
@@ -201,5 +213,6 @@
         private System.Windows.Forms.TextBox dietText;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox keywordsText;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -40,6 +40,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dietText = new System.Windows.Forms.TextBox();
             this.keywordsText = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -125,7 +126,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(475, 294);
+            this.label4.Location = new System.Drawing.Point(468, 294);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 10;
@@ -151,18 +152,28 @@
             // 
             // keywordsText
             // 
-            this.keywordsText.Location = new System.Drawing.Point(534, 253);
+            this.keywordsText.Location = new System.Drawing.Point(527, 253);
             this.keywordsText.Multiline = true;
             this.keywordsText.Name = "keywordsText";
-            this.keywordsText.Size = new System.Drawing.Size(163, 107);
+            this.keywordsText.Size = new System.Drawing.Size(170, 107);
             this.keywordsText.TabIndex = 13;
             this.keywordsText.TextChanged += new System.EventHandler(this.keywordsText_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(524, 363);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(178, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Enter keywords with space between";
             // 
             // RecordEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.keywordsText);
             this.Controls.Add(this.dietText);
             this.Controls.Add(this.label5);
@@ -196,5 +207,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox dietText;
         private System.Windows.Forms.TextBox keywordsText;
+        private System.Windows.Forms.Label label6;
     }
 }

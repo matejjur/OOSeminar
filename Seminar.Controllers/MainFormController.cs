@@ -131,6 +131,21 @@ namespace Seminar.Controllers
             homeController.SortByDate(sort, recordRepository, currentUserRepository);
         }
 
+        public void FilterRecords(MainFormController _controller)
+        {
+            homeController.FilterRecords(recordRepository, currentUserRepository);
+        }
+
+        public void FeelingFilterChange(string input)
+        {
+            homeController.feelingFilter(input);
+        }
+
+        public void KeywordsFilterChange(string input)
+        {
+            homeController.keywordsFilter(input);
+        }
+
 
         // add new record
         public void DescriptionTextChange(string input)
@@ -158,7 +173,7 @@ namespace Seminar.Controllers
             addRecordController.dateChange(input);
         }
 
-        public bool SaveRecord()
+        public string SaveRecord()
         {
             return addRecordController.CreateNewRecord(recordRepository, currentUserRepository);
         }

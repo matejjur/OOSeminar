@@ -18,5 +18,7 @@ namespace Seminar.Model.Repositories
 
         void deleteUserRecords(string username);
 
+        void getFilteredRecords(string username, string feeling, string keywords);
+
     }
 }

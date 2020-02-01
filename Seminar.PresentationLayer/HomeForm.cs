@@ -166,5 +166,21 @@ namespace Seminar.PresentationLayer
                 }
             }
         }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            _controller.FilterRecords(_controller);
+        }
+
+        private void feelingDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("AAA " + feelingDropdown.Text);
+            _controller.FeelingFilterChange(feelingDropdown.Text);
+        }
+
+        private void keywordsText_TextChanged(object sender, EventArgs e)
+        {
+            _controller.KeywordsFilterChange(keywordsText.Text);
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Seminar.Controllers
     public class AddRecordController
     {
 
-        public string feeling;
+        public string feeling = "";
         public string description;
         public string date;
         public string diet;
@@ -41,22 +41,38 @@ namespace Seminar.Controllers
             keywords = input;
         }
 
-        public bool CreateNewRecord(IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository) 
+        private void resetValues()
         {
-            Console.WriteLine("date " + date);
-            List<Record> allRecords = recordRepository.getAllRecords(currentUserRepository.getUsername());
-            foreach (Record rec in allRecords)
-            {
-                Console.WriteLine(rec.Date);
-                if (rec.Date == date)
-                {
-                    return false;
-                }
-            }
+            feeling = "";
+            description = "";
+            date = "";
+            diet = "";
+            keywords = "";
+        }
 
-            Record record = new Record(feeling, description, date, diet, keywords);
-            recordRepository.addNewRecord(record, currentUserRepository.getUsername());
-            return true;
+        public string CreateNewRecord(IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository) 
+        {
+            if (feeling != "")
+            {
+                List<Record> allRecords = recordRepository.getAllRecords(currentUserRepository.getUsername());
+                foreach (Record rec in allRecords)
+                {
+                    Console.WriteLine(rec.Date);
+                    if (rec.Date == date)
+                    {
+                        return "dateError";
+                    }
+                }
+                Record record = new Record(feeling, description, date, diet, keywords);
+                recordRepository.addNewRecord(record, currentUserRepository.getUsername());
+                resetValues();
+                return "";
+            }
+            else
+            {
+                return "feelingError";
+            }
+            
         }
 
     }

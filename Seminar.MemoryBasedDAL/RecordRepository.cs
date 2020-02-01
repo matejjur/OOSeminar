@@ -13,7 +13,8 @@ namespace Seminar.MemoryBasedDAL
     {
         private static RecordRepository _instance;
         private Dictionary<string, List<Record>> userRecords = new Dictionary<string, List<Record>>(); // username i njegovi recordsi
-
+        //private List<Record> copy = new List<Record>();
+        private Dictionary<string, List<Record>> copy = new Dictionary<string, List<Record>>();
         public List<IObserver> _listObservers = new List<IObserver>();
 
         //private List<Record> allRecords = new List<Record>();
@@ -28,16 +29,17 @@ namespace Seminar.MemoryBasedDAL
             if (!userRecords.ContainsKey(username))
             {
                 userRecords.Add(username, records);
+                copy.Add(username, records);
             }
         }
 
         public void addNewRecord(Record record, string currentUserUsername) // tu ide logika za dictionary
         {
-            Console.WriteLine(record.Date);
             List<Record> temp = userRecords[currentUserUsername];
             temp.Add(record);
             NotifyObservers();
             userRecords[currentUserUsername] = temp;
+            copy[currentUserUsername] = temp;
             // allRecords.Add(record);
         }
 
@@ -103,6 +105,52 @@ namespace Seminar.MemoryBasedDAL
         public void deleteUserRecords(string username)
         {
             userRecords.Remove(username);
+            copy.Remove(username);
+        }
+
+        public void getFilteredRecords(string username, string feeling, string keywords)
+        {
+            userRecords[username] = copy[username]; // kopija zato sta na kraju promijenim ovu listu da se prikazu filtrirani zapisi
+            List<Record> filtered1 = new List<Record>();
+            List<Record> filtered2 = new List<Record>();
+            if (feeling != null)
+            {
+                if (feeling != "")
+                {
+                    foreach (Record rec in userRecords[username])
+                    {
+                        if (rec.Feeling == feeling)
+                        {
+                            filtered1.Add(rec);
+                        }
+                    }
+                }
+                else
+                {
+                    filtered1 = userRecords[username];
+                }
+                if (keywords != "" && keywords != null)
+                {
+                    string[] kw = keywords.Split(' ');
+                    foreach (Record rec in userRecords[username])
+                    {
+                        foreach (string keyword in kw)
+                        {
+                            if (rec.Keywords.Contains(keyword))
+                            {
+                                filtered2.Add(rec);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    filtered2 = userRecords[username];
+                }
+                var intersectedRecords = filtered1.Intersect(filtered2);
+                userRecords[username] = intersectedRecords.ToList();
+            }
+            NotifyObservers();
         }
 
         public void Attach(IObserver obs)
