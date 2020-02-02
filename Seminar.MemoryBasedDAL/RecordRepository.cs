@@ -19,6 +19,11 @@ namespace Seminar.MemoryBasedDAL
             return _instance ?? (_instance = new RecordRepository());
         }
 
+        public Dictionary<string, List<Record>> getUserRecords()
+        {
+            return userRecords;
+        }
+
         public void AddUserToDictionary(string username, List<Record> records)
         {
             if (!userRecords.ContainsKey(username))

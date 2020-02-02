@@ -28,10 +28,10 @@ namespace Seminar.Controllers
             {
                 if (usr.Username.Equals(username)) return "Username already in use";
             }
-            //if (password.Length < 8)
-            //{
-            //    return "Password must be 8 characters or longer";
-            //}
+            if (password.Length < 8)
+            {
+                return "Password must be 8 characters or longer";
+            }
             LoginView.ShowViewModal();
             User user = new User(username, password);
             usrRepo.saveUser(user);
