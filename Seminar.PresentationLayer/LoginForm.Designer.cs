@@ -46,7 +46,6 @@
             this.Login.TabIndex = 0;
             this.Login.Text = "Login";
             this.Login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Login.Click += new System.EventHandler(this.Login_Click);
             // 
             // usernameInput
             // 

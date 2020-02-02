@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar.BaseLib;
 using Seminar.Controllers;
@@ -16,11 +9,6 @@ namespace Seminar.PresentationLayer
     {
 
         MainFormController _controller;
-
-        public LoginForm()
-        {
-            InitializeComponent();
-        }
 
         public LoginForm(MainFormController inController)
         {
@@ -57,8 +45,6 @@ namespace Seminar.PresentationLayer
                 MessageBox.Show("Wrong username of password", "Login error", button);
             }
         }
-
-        private void Login_Click(object sender, EventArgs e) {}
 
         private void registrationButton_Click(object sender, EventArgs e)
         {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Seminar.Model.Repositories;
+﻿using Seminar.Model.Repositories;
 
 namespace Seminar.BaseLib
 {

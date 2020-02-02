@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Seminar.Model.Repositories;
 using Seminar.Model;
-using System.Collections.ObjectModel;
 using System.Linq;
 using Seminar.BaseLib;
 
@@ -12,12 +10,9 @@ namespace Seminar.MemoryBasedDAL
     public class RecordRepository : IRecordRepository, IObservable
     {
         private static RecordRepository _instance;
-        private Dictionary<string, List<Record>> userRecords = new Dictionary<string, List<Record>>(); // username i njegovi recordsi
-        //private List<Record> copy = new List<Record>();
+        private Dictionary<string, List<Record>> userRecords = new Dictionary<string, List<Record>>();
         private Dictionary<string, List<Record>> copy = new Dictionary<string, List<Record>>();
-        public List<IObserver> _listObservers = new List<IObserver>();
-
-        //private List<Record> allRecords = new List<Record>();
+        private List<IObserver> _listObservers = new List<IObserver>();
 
         public static RecordRepository getInstance()
         {
@@ -33,7 +28,7 @@ namespace Seminar.MemoryBasedDAL
             }
         }
 
-        public void addNewRecord(Record record, string currentUserUsername) // tu ide logika za dictionary
+        public void addNewRecord(Record record, string currentUserUsername)
         {
             List<Record> temp = userRecords[currentUserUsername];
             temp.Add(record);
@@ -45,10 +40,7 @@ namespace Seminar.MemoryBasedDAL
 
         public List<Record> getAllRecords(string username)
         {
-            Console.WriteLine("Username");
-            Console.WriteLine(username);
             return userRecords[username];
-            // return allRecords;
         }
 
         public void getAllSortedRecords(string username, string sortBy, bool sort)

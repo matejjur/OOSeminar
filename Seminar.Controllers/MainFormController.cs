@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Seminar.BaseLib;
 using Seminar.Model;
 using Seminar.Model.Repositories;
@@ -40,7 +38,7 @@ namespace Seminar.Controllers
             loginController.PasswordInputController(input);
         }
 
-        public bool LoginUser(MainFormController _controller)
+        public bool LoginUser(IMainFormController _controller)
         {
             var HomeView = windowFormsFactory.CreateHomeView(_controller);
             
@@ -49,7 +47,7 @@ namespace Seminar.Controllers
             return loginController.LoginUserController(HomeView, userRepository, recordRepository, currentUserRepository);
         }
 
-        public void GoToRegistration(MainFormController _controller)
+        public void GoToRegistration(IMainFormController _controller)
         {
             var RegistrationView = windowFormsFactory.CreateRegistrationView(_controller);
             loginController.GoToRegistration(RegistrationView);
@@ -67,14 +65,13 @@ namespace Seminar.Controllers
             registrationController.PasswordInputController(input);
         }
 
-        public string RegisterUser(MainFormController _controller)
+        public string RegisterUser(IMainFormController _controller)
         {
-            Console.WriteLine("Register user");
             var LoginView = windowFormsFactory.CreateLoginUserView(_controller);
             return registrationController.RegisterUserController(LoginView, userRepository);
         }
 
-        public void GoToLogin(MainFormController _controller)
+        public void GoToLogin(IMainFormController _controller)
         {
             var LoginView = windowFormsFactory.CreateLoginUserView(_controller);
             registrationController.GoToLogin(LoginView);
@@ -82,7 +79,7 @@ namespace Seminar.Controllers
 
 
         // home
-        public void AddNewRecord(MainFormController _controller)
+        public void AddNewRecord(IMainFormController _controller)
         {
             var AddNewRecordView = windowFormsFactory.CreateAddNewRecordView(_controller);
             homeController.AddNewRecord(AddNewRecordView, recordRepository);
@@ -93,30 +90,26 @@ namespace Seminar.Controllers
             return homeController.RefreshData(recordRepository, currentUserRepository);
         }
 
-        public void OpenRecordDetails(MainFormController _controller, string id) // id je date
+        public void OpenRecordDetails(IMainFormController _controller, string id) // id je date
         {
-            Console.WriteLine("Open record details");
-            var RecordDetailsView = windowFormsFactory.CreateRecordDetailsView(_controller);
+            var RecordDetailsView = windowFormsFactory.CreateRecordDetailsView();
             recordDetailsController.OpenRecordDetails(RecordDetailsView, recordRepository, currentUserRepository, id);
         }
 
-        public void OpenRecordEdit(MainFormController _controller, string id)
+        public void OpenRecordEdit(IMainFormController _controller, string id)
         {
-            Console.WriteLine("Open record edit");
             var RecordEditView = windowFormsFactory.CreateRecordEditView(_controller);
             recordEditController.OpenRecordEdit(RecordEditView, recordRepository, currentUserRepository, id);
         }
 
-        public void Logout(MainFormController _controller)
+        public void Logout(IMainFormController _controller)
         {
-            Console.WriteLine("Logout user");
             var LoginView = windowFormsFactory.CreateLoginUserView(_controller);
             homeController.LogoutUser(LoginView);
         }
 
-        public void DeleteAccount(MainFormController _controller)
+        public void DeleteAccount(IMainFormController _controller)
         {
-            Console.WriteLine("Delete user");
             var RegistrationView = windowFormsFactory.CreateRegistrationView(_controller);
             homeController.DeleteUser(RegistrationView, userRepository, recordRepository, currentUserRepository);
         }
@@ -131,7 +124,7 @@ namespace Seminar.Controllers
             homeController.SortByDate(sort, recordRepository, currentUserRepository);
         }
 
-        public void FilterRecords(MainFormController _controller)
+        public void FilterRecords(IMainFormController _controller)
         {
             homeController.FilterRecords(recordRepository, currentUserRepository);
         }

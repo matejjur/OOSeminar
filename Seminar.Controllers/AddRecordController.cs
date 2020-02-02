@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Seminar.Model;
 using Seminar.Model.Repositories;
 
@@ -10,10 +8,10 @@ namespace Seminar.Controllers
     {
 
         public string feeling = "";
-        public string description;
-        public string date;
-        public string diet;
-        public string keywords;
+        public string description = "";
+        public string date = "";
+        public string diet = "";
+        public string keywords = "";
 
 
         public void descriptionChange(string input)
@@ -57,7 +55,6 @@ namespace Seminar.Controllers
                 List<Record> allRecords = recordRepository.getAllRecords(currentUserRepository.getUsername());
                 foreach (Record rec in allRecords)
                 {
-                    Console.WriteLine(rec.Date);
                     if (rec.Date == date)
                     {
                         return "dateError";

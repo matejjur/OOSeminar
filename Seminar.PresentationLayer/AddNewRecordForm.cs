@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar.BaseLib;
 using Seminar.Controllers;
@@ -15,10 +8,6 @@ namespace Seminar.PresentationLayer
     public partial class AddNewRecordForm : Form, IAddNewRecordView
     {
         MainFormController _controller;
-        public AddNewRecordForm()
-        {
-            InitializeComponent();
-        }
 
         public AddNewRecordForm(MainFormController inController)
         {
@@ -47,21 +36,16 @@ namespace Seminar.PresentationLayer
             _controller.KeywordsTextChange(keywordsText.Text);
         }
 
-        // feeling
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             _controller.FeelingChange(comboBox1.Text);
         }
 
-        // date
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             _controller.DateChange(dateTimePicker1.Text);
-            Console.WriteLine("DATUM");
-            Console.WriteLine(dateTimePicker1.Text);
         }
 
-        // date
         private void saveButton_Click(object sender, EventArgs e)
         {
             _controller.DateChange(dateTimePicker1.Text); // u slucaju ako se ostavi defaultno, odnosno danasnji dan

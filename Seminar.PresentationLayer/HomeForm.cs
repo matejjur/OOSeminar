@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar.BaseLib;
 using Seminar.Controllers;
@@ -21,10 +15,6 @@ namespace Seminar.PresentationLayer
         private string selectedDateForEdit;
         private bool feelingSort = true;
         private bool dateSort = true;
-        public HomeForm()
-        {
-            InitializeComponent();
-        }
 
         public HomeForm(MainFormController inController)
         {
@@ -32,20 +22,12 @@ namespace Seminar.PresentationLayer
             InitializeComponent();
         }
 
-        //private void HomeForm_Shown()
-        //{
-        //    listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
-        //    listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
-        //    listView1.Items.Add(new ListViewItem(new string[] { "Fake data", "Nesto", "Nesto drugo" }));
-        //}
-
         public void Updt()
         {
             listView1.Items.Clear();
             var records = _controller.RefreshData();
             foreach (var record in records)
             {
-                Console.WriteLine(record.Description);
                 listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Keywords }));
             }
         }
@@ -63,7 +45,6 @@ namespace Seminar.PresentationLayer
             {
                 listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Keywords }));
             }
-            // HomeForm_Shown();
             Show();
             return true;
         }
@@ -82,7 +63,7 @@ namespace Seminar.PresentationLayer
             }
         }
 
-        private void editRecord(object sender, EventArgs e) // ListViewItem click
+        private void editRecord(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count == 0) return;
             selectedDateForEdit = listView1.SelectedItems[0].Text;
@@ -118,21 +99,8 @@ namespace Seminar.PresentationLayer
             }
         }
 
-        private void refreshButton_Click(object sender, EventArgs e)
-        {
-            // HomeForm_Shown();
-            listView1.Items.Clear();
-            var records = _controller.RefreshData();
-            foreach (var record in records)
-            {
-                Console.WriteLine(record.Description);
-                listView1.Items.Add(new ListViewItem(new string[] { record.Date, record.Feeling, record.Keywords }));
-            }
-        }
-
         private void editButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Edit record with date: " + selectedDateForEdit);
             _controller.OpenRecordEdit(_controller, selectedDateForEdit);
         }
 
@@ -143,7 +111,6 @@ namespace Seminar.PresentationLayer
             if (result == DialogResult.Yes)
             {
                 _controller.Logout(_controller);
-                Console.WriteLine("Logged user out");
                 Hide();
             }
         }
@@ -161,7 +128,6 @@ namespace Seminar.PresentationLayer
                 if (result2 == DialogResult.Yes)
                 {
                     _controller.DeleteAccount(_controller);
-                    Console.WriteLine("User deleted");
                     Hide();
                 }
             }
@@ -174,7 +140,6 @@ namespace Seminar.PresentationLayer
 
         private void feelingDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("AAA " + feelingDropdown.Text);
             _controller.FeelingFilterChange(feelingDropdown.Text);
         }
 

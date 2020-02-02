@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar.BaseLib;
 using Seminar.Controllers;
@@ -16,11 +9,6 @@ namespace Seminar.PresentationLayer
     public partial class RecordEditForm : Form, IRecordEditView
     {
         MainFormController _controller;
-        
-        public RecordEditForm()
-        {
-            InitializeComponent();
-        }
 
         public RecordEditForm(MainFormController mc)
         {
@@ -67,7 +55,6 @@ namespace Seminar.PresentationLayer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Save edit changes");
             _controller.SaveEditChanges(dateText.Text);
             Close();
         }

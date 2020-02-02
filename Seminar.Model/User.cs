@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Seminar.Model
+﻿namespace Seminar.Model
 {
     public class User
     {

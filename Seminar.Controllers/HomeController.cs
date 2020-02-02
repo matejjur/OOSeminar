@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Seminar.BaseLib;
 using Seminar.Model;
 using Seminar.Model.Repositories;
@@ -34,8 +32,6 @@ namespace Seminar.Controllers
             recordRepository.deleteUserRecords(currentUserUsername);
             userRepository.DeleteUser(user);
             registrationView.ShowViewModal();
-
-            Console.WriteLine(userRepository.getAllUsers().Count);
         }
 
         public void SortByFeeling(bool sort, IRecordRepository recordRepository, ICurrentUserRepository currentUserRepository)

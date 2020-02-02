@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Seminar.BaseLib;
 using Seminar.Controllers;
@@ -16,11 +9,6 @@ namespace Seminar.PresentationLayer
     {
 
         MainFormController _controller;
-
-        public RegistrationForm()
-        {
-            InitializeComponent();
-        }
 
         public RegistrationForm(MainFormController inController)
         {
@@ -52,7 +40,6 @@ namespace Seminar.PresentationLayer
             }
         }
 
-        //TODO provjeriti sta je ovom funkcijom
         public bool ShowViewModal()
         {
             Show();
