@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Seminar.BaseLib\Seminar.BaseLib.csproj" />
-    <ProjectReference Include="..\Seminar.Model\Seminar.Model.csproj" />
+    <ProjectReference Include="..\Seminar.Model\QuickDiary.Model.csproj" />
   </ItemGroup>
 
 </Project>

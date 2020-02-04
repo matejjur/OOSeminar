@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4AFA0512-DC80-4160-A5B6-73D295A22CA7}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>Seminar.AppStarter</RootNamespace>
-    <AssemblyName>Seminar.AppStarter</AssemblyName>
+    <ProjectGuid>{DCCCC818-2F12-4C6E-9A12-C72AD2967D19}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Seminar.PresentationLayer</RootNamespace>
+    <AssemblyName>Seminar.PresentationLayer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,8 +49,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="AddNewRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewRecordForm.Designer.cs">
+      <DependentUpon>AddNewRecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeForm.Designer.cs">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecordDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecordDetailsForm.Designer.cs">
+      <DependentUpon>RecordDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecordEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecordEditForm.Designer.cs">
+      <DependentUpon>RecordEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrationForm.Designer.cs">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFormsFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddNewRecordForm.resx">
+      <DependentUpon>AddNewRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -57,6 +105,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RecordDetailsForm.resx">
+      <DependentUpon>RecordDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecordEditForm.resx">
+      <DependentUpon>RecordEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrationForm.resx">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -68,28 +125,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Seminar.BaseLib\Seminar.BaseLib.csproj">
+    <ProjectReference Include="..\Seminar.BaseLib\QuickDiary.BaseLib.csproj">
       <Project>{1fe6db32-2c60-497e-80d6-6b0ef636f8b5}</Project>
-      <Name>Seminar.BaseLib</Name>
+      <Name>QuickDiary.BaseLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Seminar.Controllers\Seminar.Controllers.csproj">
+    <ProjectReference Include="..\Seminar.Controllers\QuickDiary.Controllers.csproj">
       <Project>{c64bb941-0c65-42a1-9352-bad37a6b35d5}</Project>
-      <Name>Seminar.Controllers</Name>
+      <Name>QuickDiary.Controllers</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Seminar.MemoryBasedDAL\Seminar.MemoryBasedDAL.csproj">
+    <ProjectReference Include="..\Seminar.MemoryBasedDAL\QuickDiary.MemoryBasedDAL.csproj">
       <Project>{6160e9a6-3ad6-4a8f-8c30-cc6b98de0ca2}</Project>
-      <Name>Seminar.MemoryBasedDAL</Name>
+      <Name>QuickDiary.MemoryBasedDAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Seminar.Model\Seminar.Model.csproj">
+    <ProjectReference Include="..\Seminar.Model\QuickDiary.Model.csproj">
       <Project>{e8b8f712-0334-4702-8b7d-5725602df6d0}</Project>
-      <Name>Seminar.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Seminar.PresentationLayer\Seminar.PresentationLayer.csproj">
-      <Project>{dcccc818-2f12-4c6e-9a12-c72ad2967d19}</Project>
-      <Name>Seminar.PresentationLayer</Name>
+      <Name>QuickDiary.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

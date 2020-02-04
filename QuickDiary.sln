@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seminar.AppStarter", "Seminar.AppStarter\Seminar.AppStarter.csproj", "{4AFA0512-DC80-4160-A5B6-73D295A22CA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickDiary.AppStarter", "Seminar.AppStarter\QuickDiary.AppStarter.csproj", "{4AFA0512-DC80-4160-A5B6-73D295A22CA7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Seminar.Controllers", "Seminar.Controllers\Seminar.Controllers.csproj", "{C64BB941-0C65-42A1-9352-BAD37A6B35D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickDiary.Controllers", "Seminar.Controllers\QuickDiary.Controllers.csproj", "{C64BB941-0C65-42A1-9352-BAD37A6B35D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Seminar.BaseLib", "Seminar.BaseLib\Seminar.BaseLib.csproj", "{1FE6DB32-2C60-497E-80D6-6B0EF636F8B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickDiary.BaseLib", "Seminar.BaseLib\QuickDiary.BaseLib.csproj", "{1FE6DB32-2C60-497E-80D6-6B0EF636F8B5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Seminar.MemoryBasedDAL", "Seminar.MemoryBasedDAL\Seminar.MemoryBasedDAL.csproj", "{6160E9A6-3AD6-4A8F-8C30-CC6B98DE0CA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickDiary.MemoryBasedDAL", "Seminar.MemoryBasedDAL\QuickDiary.MemoryBasedDAL.csproj", "{6160E9A6-3AD6-4A8F-8C30-CC6B98DE0CA2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Seminar.Model", "Seminar.Model\Seminar.Model.csproj", "{E8B8F712-0334-4702-8B7D-5725602DF6D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickDiary.Model", "Seminar.Model\QuickDiary.Model.csproj", "{E8B8F712-0334-4702-8B7D-5725602DF6D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seminar.PresentationLayer", "Seminar.PresentationLayer\Seminar.PresentationLayer.csproj", "{DCCCC818-2F12-4C6E-9A12-C72AD2967D19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickDiary.PresentationLayer", "Seminar.PresentationLayer\QuickDiary.PresentationLayer.csproj", "{DCCCC818-2F12-4C6E-9A12-C72AD2967D19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seminar.MemoryBasedDAL.Tests", "Seminar.MemoryBasedDAL.Tests\Seminar.MemoryBasedDAL.Tests.csproj", "{250C2BA6-183C-49C0-8E65-5C9E7E4D7585}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickDiary.MemoryBasedDAL.Tests", "Seminar.MemoryBasedDAL.Tests\QuickDiary.MemoryBasedDAL.Tests.csproj", "{250C2BA6-183C-49C0-8E65-5C9E7E4D7585}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
